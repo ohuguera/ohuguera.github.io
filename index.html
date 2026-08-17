@@ -135,6 +135,21 @@
   .tname .ar{color:var(--green); font-size:13px}
   .tkind{font-size:12px; color:var(--mute); line-height:1.4; margin-top:1px}
 
+  /* Saída para o Behance. Fica DEPOIS dos quatro cards, e é link de texto, não terceiro botão:
+     se virasse botão, competiria com o WhatsApp, que é o único lugar onde essa página vira
+     dinheiro. Aqui ele pega exatamente quem acabou de ver os quatro e quer mais.
+
+     Duas linhas empilhadas, e nao uma linha de flex: no celular a frase inteira nao cabe em
+     390px, e com flex a seta ia parar sozinha na lateral enquanto o texto quebrava no meio.
+     Bloco centrado quebra onde eu mandei quebrar. */
+  .mais{display:block; margin-top:22px; padding:14px 16px; border-radius:14px;
+        border:1px solid var(--edge); background:rgba(45,14,67,.34);
+        color:var(--mute); text-decoration:none; font-size:13px; text-align:center;
+        line-height:1.45}
+  .mais b{display:block; color:#fff; font-weight:600; font-size:14px; margin-top:2px}
+  .mais .ar{color:var(--green); font-weight:700; font-size:12px; margin-left:5px}
+  .mais:active{transform:translateY(1px)}
+
   /* ---------- ritmo: 370 → 1.489 ----------
      Os dois números andam juntos e nessa ordem de propósito. O 1.489 sozinho convida o comprador
      a dividir o preço por 1.489 e concluir que vídeo é barato — ou a pensar "então não é vídeo,
@@ -273,6 +288,12 @@
      </a>
 
    </div>
+
+   
+   <a class="mais" href="https://www.behance.net/hugoouvidio" target="_blank" rel="noopener">
+     Quatro é o recorte.
+     <b>O portfólio inteiro está no Behance <span class="ar">↗</span></b>
+   </a>
 
    
    <div class="brands">
