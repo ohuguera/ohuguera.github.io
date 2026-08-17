@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hugo Ouvidio · Vídeo com IA</title>
+<meta name="description" content="Vídeo para marca que precisa publicar toda semana. 370 entregas viraram 1.489 arquivos finais. São Paulo e remoto.">
+<meta name="theme-color" content="#040109">
+<link rel="canonical" href="https://ohuguera.github.io/">
+<link rel="icon" href="hugo-avatar.jpg">
+<link rel="apple-touch-icon" href="hugo-avatar.jpg">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ohuguera.github.io/">
+<meta property="og:site_name" content="Hugo Ouvidio">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Uma produtora inteira. Uma pessoa só.">
+<meta property="og:description" content="Vídeo para marca que precisa publicar toda semana. 370 entregas viraram 1.489 arquivos finais.">
+<meta property="og:image" content="https://ohuguera.github.io/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Uma produtora inteira. Uma pessoa só.">
+<meta name="twitter:description" content="Vídeo para marca que precisa publicar toda semana. 370 entregas viraram 1.489 arquivos finais.">
+<meta name="twitter:image" content="https://ohuguera.github.io/og.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep:#220439; --dark:#040109; --panel:#2D0E43; --plum:#251A2B;
+    --green:#00BF6F; --green-soft:rgba(0,191,111,.14);
+    --ink:#ECEDEE; --ink2:#D4D4D8; --mute:#9269A7;
+    --edge:rgba(255,255,255,.07);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{background:var(--dark)}
+  body{
+    background:
+      radial-gradient(90% 46% at 84% 0%, rgba(109,32,168,.42), transparent 68%),
+      radial-gradient(70% 34% at 6% 12%, rgba(0,191,111,.10), transparent 70%),
+      linear-gradient(180deg,var(--deep) 0%,#12032099 30%,var(--dark) 72%);
+    background-attachment:fixed; color:var(--ink);
+    font-family:'Ubuntu Sans',-apple-system,sans-serif; font-size:15px; line-height:1.5;
+    min-height:100svh; overflow-x:hidden; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{padding:0 18px; max-width:520px; margin:0 auto; width:100%}
+  .screen{min-height:100svh; display:flex; flex-direction:column; padding-bottom:8px}
+
+  /* ---------- topo ---------- */
+  header{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:18px 0 0}
+  .brand{display:flex; align-items:center; gap:10px}
+  .mark{width:34px; height:34px; border-radius:50%; flex:0 0 auto; overflow:hidden;
+        border:1.5px solid var(--green); background:var(--panel)}
+  .mark img{width:100%; height:100%; object-fit:cover; object-position:50% 30%; display:block}
+  .brand b{font-size:15px; font-weight:700; letter-spacing:-.01em}
+  .brand span{display:block; font-size:11px; color:var(--mute); font-weight:400; margin-top:-1px}
+  .pill{display:inline-flex; align-items:center; gap:7px; border-radius:100px;
+        background:var(--green-soft); color:var(--green); font-size:12px; font-weight:500;
+        padding:7px 13px; white-space:nowrap}
+  .pill::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--green)}
+
+  /* ---------- herói ---------- */
+  h1{margin-top:20px; font-size:clamp(30px,8.6vw,38px); font-weight:700; line-height:1.1;
+     letter-spacing:-.025em; text-wrap:balance}
+  h1 em{font-style:normal; color:var(--green)}
+  .lead{margin-top:12px; margin-bottom:22px; font-size:15px; line-height:1.55;
+        color:var(--ink2); max-width:34ch}
+  .lead b{color:#fff; font-weight:600}
+
+  /* ---------- prova na dobra: 370 → 1.489 ----------
+     Substituiu o slot de vídeo, os três números soltos e a fileira de marcas (Hugo, 17/08).
+     O par vem nessa ordem porque o 1.489 sozinho convida o comprador a dividir o preço por 1.489
+     e concluir que vídeo é barato. Com o 370 na frente, o multiplicador vira pipeline. */
+  /* margin-top:auto aqui e no nav: o espaço livre da tela alta se divide igual entre os dois,
+     então o bloco flutua no meio em vez de grudar embaixo da copy e deixar um buraco antes dos
+     botões. Em tela baixa o auto vira zero e quem garante o respiro é o margin-bottom da .lead. */
+  /* o padding cresce com a altura da tela: sem o slot de vídeo, é este bloco que tem de ocupar
+     o corpo da dobra. Em celular alto ele respira; em tela baixa encolhe e não empurra os botões. */
+  .prova{margin-top:auto; border-radius:18px; background:rgba(45,14,67,.55);
+         border:1px solid var(--edge); padding:clamp(18px,5.4vh,46px) 12px;
+         display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:8px}
+  .prova .n{font-size:clamp(32px,10.4vw,46px); font-weight:800; line-height:1; letter-spacing:-.035em;
+            text-align:center; color:#fff; font-variant-numeric:tabular-nums}
+  .prova .b .n{color:var(--green)}
+  .prova .k{font-size:11.5px; color:var(--mute); text-align:center; margin-top:7px; line-height:1.3}
+  .prova .seta{color:var(--mute); font-size:17px; padding-bottom:14px}
+  .prova-nota{margin-top:10px; font-size:12.5px; color:var(--mute); line-height:1.5; text-align:center}
+  .prova-nota b{color:var(--ink2); font-weight:600}
+
+  /* ---------- marcas ---------- */
+  .brands{margin-top:16px; display:flex; flex-wrap:wrap; gap:6px; justify-content:center}
+  .chip{border-radius:100px; background:rgba(45,14,67,.5); border:1px solid var(--edge);
+        padding:6px 12px; font-size:12px; color:var(--ink2)}
+  .chip.more{color:var(--mute)}
+
+  /* ---------- as duas portas ---------- */
+  nav{margin-top:auto; padding-top:22px}
+  a.btn{display:flex; align-items:center; justify-content:center; gap:9px; min-height:54px;
+        border-radius:12px; text-decoration:none; font-size:16px; font-weight:600;
+        letter-spacing:-.01em; margin-bottom:9px}
+  a.btn.go{background:var(--green); color:var(--plum)}
+  a.btn.see{background:var(--plum); color:#fff; border:1px solid var(--edge)}
+  a.btn.see .ar{color:var(--green); font-weight:700}
+  a.btn:active{transform:translateY(1px)}
+  .fine{text-align:center; font-size:12px; color:var(--mute); margin-top:11px}
+
+  /* ---------- abaixo da dobra ---------- */
+  .sect{padding-top:44px}
+  .eyebrow{font-size:12px; font-weight:600; color:var(--green); margin-bottom:8px}
+  .sect h2{font-size:24px; font-weight:700; letter-spacing:-.025em; line-height:1.15}
+  .sect p.sub{margin-top:8px; font-size:14px; color:var(--mute); max-width:36ch}
+
+  /* trampos — ritmo: 1 destaque largo, 2 verticais lado a lado, 1 largo de fechamento.
+     O quarto é largo de propósito: é o único que não é iGaming de estúdio (evento, campo),
+     e um card estreito o esconderia no rodapé da grade. */
+  .tiles{margin-top:18px; display:grid; grid-template-columns:1fr 1fr; gap:10px}
+  a.tile{grid-column:span 1; border-radius:16px; background:rgba(45,14,67,.55);
+         border:1px solid var(--edge); padding:10px; text-decoration:none; color:inherit;
+         display:block}
+  a.tile.big,
+  a.tile.wide{grid-column:span 2}
+  a.tile:active{transform:translateY(1px)}
+  .cover{position:relative; border-radius:11px; overflow:hidden; background:rgba(4,1,9,.5);
+         aspect-ratio:4/5; display:grid; place-items:center}
+  a.tile.big .cover{aspect-ratio:16/10}
+  a.tile.wide .cover{aspect-ratio:16/9}
+  .cover img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block}
+  .cover .ph{font-size:11px; color:var(--mute); text-align:center; padding:8px; line-height:1.5}
+  .badge{position:absolute; z-index:2; left:9px; top:9px; border-radius:100px;
+         background:rgba(4,1,9,.72); backdrop-filter:blur(8px); border:1px solid var(--edge);
+         padding:5px 10px; font-size:11px; font-weight:600; color:var(--green)}
+  .tname{margin-top:10px; font-size:15px; font-weight:600; display:flex; align-items:center; gap:6px}
+  .tname .ar{color:var(--green); font-size:13px}
+  .tkind{font-size:12px; color:var(--mute); line-height:1.4; margin-top:1px}
+
+  /* ---------- ritmo: 370 → 1.489 ----------
+     Os dois números andam juntos e nessa ordem de propósito. O 1.489 sozinho convida o comprador
+     a dividir o preço por 1.489 e concluir que vídeo é barato — ou a pensar "então não é vídeo,
+     é variação de corte". Com o 370 na frente, o multiplicador vira explicação de pipeline
+     em vez de pedido de desconto. */
+  .ritmo-nota{margin-top:16px; font-size:13.5px; color:var(--ink2); line-height:1.6; max-width:40ch}
+  .ritmo-nota b{color:#fff; font-weight:600}
+
+  /* os três números que saíram da dobra vivem aqui: na dobra eles competiam com o par 370/1.489;
+     aqui embaixo eles sustentam o par, que é exatamente a função deles */
+  .nums{margin-top:16px; display:grid; grid-template-columns:repeat(3,1fr); gap:8px}
+  .num{border-radius:12px; background:rgba(45,14,67,.55); border:1px solid var(--edge);
+       padding:13px 8px; text-align:center}
+  .num .n{font-size:21px; font-weight:700; line-height:1; letter-spacing:-.025em; color:#fff}
+  .num .n em{font-style:normal; color:var(--green)}
+  .num .k{font-size:11px; color:var(--mute); margin-top:6px; line-height:1.3}
+
+  .kinds{margin-top:18px; display:flex; flex-direction:column; gap:9px}
+  .kind{border-radius:14px; background:rgba(45,14,67,.55); border:1px solid var(--edge);
+        padding:14px 16px; display:flex; align-items:center; gap:13px}
+  .kind .dot{width:34px; height:34px; border-radius:10px; background:var(--green-soft);
+             color:var(--green); display:grid; place-items:center; font-weight:700; font-size:14px;
+             flex:0 0 auto}
+  .kind .t{font-size:15px; font-weight:600}
+  .kind .d{font-size:12.5px; color:var(--mute); margin-top:1px}
+
+  /* ---------- quem faz ---------- */
+  .who{margin-top:18px; position:relative; border-radius:18px; overflow:hidden;
+       border:1px solid var(--edge); background:var(--panel)}
+  .who>img{display:block; width:100%; aspect-ratio:4/5; object-fit:cover; object-position:50% 26%;
+           filter:contrast(1.05) saturate(.84) brightness(.9)}
+  .who::after{content:''; position:absolute; inset:0; pointer-events:none;
+    background:
+      /* a luz violeta passa longe do rosto de propósito — pele com cast roxo parece erro de cor */
+      radial-gradient(56% 30% at 96% 2%, rgba(109,32,168,.45), transparent 68%),
+      linear-gradient(180deg, rgba(4,1,9,0) 30%, rgba(4,1,9,.55) 62%, rgba(4,1,9,.95) 92%);}
+  .who .cap{position:absolute; z-index:2; left:17px; right:17px; bottom:16px}
+  .who .cap b{display:block; font-size:20px; font-weight:700; letter-spacing:-.02em}
+  .who .cap p{margin-top:5px; font-size:13.5px; color:var(--ink2); line-height:1.5; max-width:30ch}
+  .facts{margin-top:12px; display:flex; flex-wrap:wrap; gap:6px}
+
+  .foot{padding:32px 0 38px; text-align:center; font-size:12px; color:var(--mute)}
+
+  /* telas baixas: as duas portas continuam acima da dobra */
+  @media (max-height:780px){
+    header{padding-top:12px}
+    h1{margin-top:14px; font-size:clamp(26px,7.6vw,32px)}
+    .lead{margin-top:9px; margin-bottom:16px; font-size:14px}
+    .prova{padding:14px 10px}
+    .prova .n{font-size:clamp(26px,8vw,32px)} .prova .k{margin-top:5px}
+    .prova-nota{margin-top:8px; font-size:12px}
+    .chip{padding:5px 10px; font-size:11px}
+    nav{padding-top:14px} a.btn{min-height:50px; font-size:15px; margin-bottom:7px}
+    .fine{margin-top:8px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div class="screen">
+
+  <header>
+    <div class="brand">
+      <div class="mark"><img src="hugo-avatar.jpg" alt="Hugo Ouvidio"></div>
+      <div><b>Hugo Ouvidio</b><span>Vídeo com IA</span></div>
+    </div>
+    <div class="pill">Aceitando projeto</div>
+  </header>
+
+  <h1>Uma produtora inteira.<br><em>Uma pessoa só.</em></h1>
+  
+  <p class="lead">Para marca que precisa de vídeo <b>toda semana</b>, não uma vez por mês. Você não contrata uma peça. Contrata a <b>operação inteira</b>.</p>
+
+  
+  <div class="prova">
+    <div class="a"><div class="n">370</div><div class="k">entregas</div></div>
+    <div class="seta">→</div>
+    <div class="b"><div class="n" id="cnt">1.489</div><div class="k">arquivos finais</div></div>
+  </div>
+  <p class="prova-nota">Cinco meses seguidos acima de <b>250 arquivos por mês</b>.</p>
+
+  <nav>
+    <a class="btn go" href="https://wa.me/5511952898354?text=Vim%20pelo%20Instagram%20e%20quero%20um%20or%C3%A7amento" target="_blank" rel="noopener">Quero um orçamento</a>
+    <a class="btn see" href="#trampos">Ver o trabalho <span class="ar">↓</span></a>
+    <p class="fine">Resposta no mesmo dia · São Paulo e remoto</p>
+  </nav>
+
+ </div>
+
+ 
+ <section class="sect" id="trampos">
+   <div class="eyebrow">Trabalho selecionado</div>
+   <h2>Quatro que valem a visita</h2>
+   <p class="sub">Escolhidos por ele. Cada um abre no post original.</p>
+   <div class="tiles">
+
+     <a class="tile big" href="https://www.instagram.com/p/DIbdQRYyon1/" target="_blank" rel="noopener">
+       <div class="cover">
+         <span class="badge">+2 mi de views</span>
+         <span class="ph">[ capa-01.jpg ]</span>
+         <img src="capa-01.jpg" alt="" onerror="this.remove()">
+       </div>
+       <div class="tname">REALS BET × A.C. Milan <span class="ar">↗</span></div>
+       <div class="tkind">Anúncio oficial da parceria. Captação em Milão, edição, som e cor. Abertura com Rodrigo Faro.</div>
+     </a>
+
+     <a class="tile" href="https://www.instagram.com/p/DRrtQTKjee0/" target="_blank" rel="noopener">
+       <div class="cover">
+         <span class="ph">[ capa-02.jpg ]</span>
+         <img src="capa-02.jpg" alt="" onerror="this.remove()">
+       </div>
+       <div class="tname">Black Friday <span class="ar">↗</span></div>
+       <div class="tkind">REALS BET · cenas inteiras geradas a partir de uma foto do set</div>
+     </a>
+
+     <a class="tile" href="https://www.instagram.com/p/DR15D1PkuBy/" target="_blank" rel="noopener">
+       <div class="cover">
+         <span class="badge">100% IA</span>
+         <span class="ph">[ capa-03.jpg ]</span>
+         <img src="capa-03.jpg" alt="" onerror="this.remove()">
+       </div>
+       <div class="tname">REALS DAY <span class="ar">↗</span></div>
+       <div class="tkind">Os personagens do slot dentro do Mundo Invertido de Stranger Things</div>
+     </a>
+
+     
+     <a class="tile wide" href="https://www.instagram.com/reel/DPB8EGHEvWD/" target="_blank" rel="noopener">
+       <div class="cover">
+         <span class="badge">4 dias em campo</span>
+         <span class="ph">[ capa-04.jpg ]</span>
+         <img src="capa-04.jpg" alt="" onerror="this.remove()">
+       </div>
+       <div class="tname">Motorgrid Weekend <span class="ar">↗</span></div>
+       <div class="tkind">Cobertura de ponta a ponta. Captação no meio da pista, corte e finalização no ritmo dos quatro dias.</div>
+     </a>
+
+   </div>
+
+   
+   <div class="brands">
+     <span class="chip">McDonald's</span>
+     <span class="chip">REALS.bet</span>
+     <span class="chip">Bingo.bet</span>
+     <span class="chip">A.C. Milan</span>
+     <span class="chip more">+9 marcas</span>
+   </div>
+ </section>
+
+ 
+ <section class="sect">
+   <div class="eyebrow">Ritmo</div>
+   <h2>Como 370 viram 1.489</h2>
+   <p class="sub">O número da dobra explicado. E os três que sustentam ele.</p>
+
+   <p class="ritmo-nota">Uma entrega vira <b>quatro arquivos, em média</b>: mesma gravação, mesma
+   direção, quatro cortes que podem ir para o ar. É por isso que o volume sobe sem que o prazo suba
+   junto. É isso que uma marca compra quando precisa publicar toda semana.</p>
+
+   <div class="nums">
+     <div class="num"><div class="n">1 <em>→</em> 8</div><div class="k">por dia</div></div>
+     <div class="num"><div class="n">228</div><div class="k">na Copa da Bingo.bet</div></div>
+     <div class="num"><div class="n">405</div><div class="k">cadastros</div></div>
+   </div>
+ </section>
+
+ <section class="sect">
+   <div class="eyebrow">O que entra na conta</div>
+   <h2>Três frentes, um só fornecedor</h2>
+   <div class="kinds">
+     <div class="kind"><div class="dot">01</div>
+       <div><div class="t">Criativos em volume</div><div class="d">com variação para testar o que performa</div></div></div>
+     <div class="kind"><div class="dot">02</div>
+       <div><div class="t">Cortes com legenda</div><div class="d">prontos para feed, Reels e anúncio</div></div></div>
+     <div class="kind"><div class="dot">03</div>
+       <div><div class="t">Motion e peças de campanha</div><div class="d">para quando a marca precisa de filme, não de corte</div></div></div>
+   </div>
+ </section>
+
+ <section class="sect">
+   <div class="eyebrow">Quem faz</div>
+   <h2>Uma pessoa só</h2>
+   <p class="sub">Sem intermediário, sem repasse, sem telefone sem fio. Você fala com quem edita.</p>
+
+   <div class="who">
+     <img src="hugo-retrato.jpg" alt="Hugo Ouvidio">
+     <div class="cap">
+       <b>Hugo Ouvidio</b>
+       <p>Cinco anos fazendo vídeo para marca grande. Os últimos dois construindo a máquina que entrega no volume que a operação pede.</p>
+     </div>
+   </div>
+
+   <div class="facts">
+     <span class="chip">+5 anos</span>
+     <span class="chip">São Paulo · remoto</span>
+     <span class="chip">Aposta, esporte, consumo e TV</span>
+     <span class="chip">Resposta no mesmo dia</span>
+   </div>
+
+   <a class="btn go" style="margin-top:18px" href="https://wa.me/5511952898354?text=Vim%20pelo%20Instagram%20e%20quero%20um%20or%C3%A7amento" target="_blank" rel="noopener">Falar com o Hugo agora</a>
+ </section>
+
+ <p class="foot">Hugo Ouvidio · hugoleonardo1312@gmail.com</p>
+</div>
+
+<script>
+  // 1.489 é contagem real: soma de QUANTIDADE nas linhas do Hugo na planilha de controle.
+  // Único movimento da página. O número já está escrito no HTML — se o JS não rodar, ele
+  // aparece parado e certo. A animação é enfeite, não é o conteúdo.
+  (function(){
+    var el=document.getElementById('cnt'), alvo=1489;
+    var fmt=function(v){return v.toLocaleString('pt-BR')};
+    if(!el || matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    var n=0, t=setInterval(function(){
+      n+=Math.max(1,Math.round((alvo-n)/12));
+      if(n>=alvo){n=alvo;clearInterval(t);}
+      el.textContent=fmt(n);
+    },26);
+  })();
+</script>
+</body>
+</html>
