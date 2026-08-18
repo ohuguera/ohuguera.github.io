@@ -200,10 +200,10 @@ ul.chk li b{color:var(--ink)}
   .barra-t .seg{font-size:10px}
 }
 
-/* Blocos que so existem no PDF: folha de rosto e aceite. Na tela eles atrapalhariam — quem
-   abre o link no celular quer a proposta, nao um cabecalho de oficio. No PDF sao obrigatorios,
-   porque PDF e reencaminhado: sai do WhatsApp do candidato e cai na mesa do tesoureiro, que
-   nao viu conversa nenhuma e precisa saber quem manda, para quem, ate quando vale. */
+/* O que so existe no PDF: a folha de rosto. Na tela ela atrapalharia — quem abre o link no
+   celular quer a proposta, nao um cabecalho de oficio. No PDF e obrigatoria, porque PDF e
+   reencaminhado: sai do WhatsApp do candidato e cai na mesa do tesoureiro, que nao viu
+   conversa nenhuma e precisa saber quem manda, para quem, ate quando vale. */
 .so-print{display:none}
 
 /* Cmd+P -> Salvar como PDF. Fundo escuro em impressora sai sujo e custa tinta: o print vira
@@ -218,6 +218,10 @@ ul.chk li b{color:var(--ink)}
   .wrap{max-width:none; padding:0}
   .cta,.marca,.destinatario,.so-tela{display:none}
   .so-print{display:block}
+  /* .so-print e block por padrao (folha de rosto). O contato no rodape e um <span> dentro de um
+     <p>: block ali geraria caixa de bloco dentro de paragrafo, que e HTML invalido e o navegador
+     conserta partindo o <p> em dois. Inline resolve e a quebra ja vem do <br>. */
+  span.so-print{display:inline}
 
   /* COR NO PAPEL — a regra tem que ser por exclusao, nunca por lista.
      A versao anterior listava os seletores que viravam escuro. Todo <b> que nao estava na
@@ -233,16 +237,16 @@ ul.chk li b{color:var(--ink)}
      .wrap .vol b (0,2,1) ganha de .wrap b (0,1,1), que ganha de .wrap * (0,1,0). */
   .wrap *{color:#333 !important}
   .wrap h1,.wrap h3,.wrap b,.wrap strong,.wrap .fx .nome,.wrap .pronta .txt .um,
-  .wrap .rosto .obj,.wrap .aceite .t{color:#111 !important}
+  .wrap .rosto .obj{color:#111 !important}
   .wrap h2,.wrap .nota,.wrap .rodape,.wrap .rot,.wrap .sumario,.wrap .rosto dt,
   .wrap .fx .sla,.wrap .fx .ord,.wrap .vol s,.wrap .fase .quando,
-  .wrap .datas span,.wrap .aceite p{color:#666 !important}
+  .wrap .datas span{color:#666 !important}
   .wrap h1 em,.wrap .rosto .tipo,.wrap .vol b,.wrap .linhas .l.tot b,
   .wrap .pronta .cab span,.wrap .fx .sel{color:#0A7A48 !important}
   .wrap .barra-t .seg{color:#0B0410 !important}
 
   h2{break-after:avoid; page-break-after:avoid}
-  .pronta,.fx,.est,.fase,.vol,.legenda-b,.relogio,.aceite{border:1px solid #ddd;
+  .pronta,.fx,.est,.fase,.vol,.legenda-b,.relogio{border:1px solid #ddd;
       background:#fafafa; break-inside:avoid; page-break-inside:avoid}
   /* O relogio nao tem moldura: a barra e a legenda de datas e que nao podem se separar. */
   .relogio{border:0; background:none}
@@ -271,15 +275,6 @@ ul.chk li b{color:var(--ink)}
   .rosto dt{color:#666; font-weight:600}
   .rosto dd{color:#111}
   .rosto .sumario{margin-top:16px; font-size:9pt; color:#666}
-
-  /* ---- aceite ---- */
-  .aceite{margin-top:26px; padding:16px 18px; border:1.5px solid #111; break-inside:avoid}
-  .aceite .t{font-size:11pt; font-weight:800; color:#111}
-  .aceite p{font-size:9pt; color:#444; margin:6px 0 14px}
-  .aceite .opc{font-size:10pt; color:#111; margin-bottom:20px; line-height:2}
-  .wrap .aceite .opc span{color:#111}
-  .aceite .campo{border-bottom:1px solid #111; height:22px; margin-bottom:4px}
-  .aceite .rot{font-size:8.5pt; color:#666; margin-bottom:16px}
 }
 </style>
 </head>
@@ -301,7 +296,7 @@ ul.chk li b{color:var(--ink)}
     </dl>
     <div class="sumario">Nesta proposta: o relógio da campanha · como o volume acontece ·
     o calendário · por que três diárias · as três formas de fazer, com preço · pagamento ·
-    o que vai no contrato · aceite.</div>
+    o que vai no contrato.</div>
   </div>
 
   <div class="marca">
@@ -563,26 +558,11 @@ ul.chk li b{color:var(--ink)}
      target="_blank" rel="noopener">Falar no WhatsApp e marcar a diária 1</a>
 
   
-  <div class="aceite so-print">
-    <div class="t">Aceite da proposta</div>
-    <p>O aceite abaixo define a faixa contratada e mantém o preço desta proposta. Não substitui
-    o contrato de prestação de serviço, que é assinado em seguida e é a peça que entra na
-    prestação de contas da campanha. <b>A primeira parcela é paga no fechamento desse contrato,
-    e é ela que dá início à produção.</b></p>
-    <div class="opc">Faixa escolhida — marcar uma:<br>
-    <span>(&nbsp;&nbsp;) 01 · As 6 pautas — R$ 11.400</span><br>
-    <span>(&nbsp;&nbsp;) 02 · Metade da campanha — R$ 17.300</span><br>
-    <span>(&nbsp;&nbsp;) 03 · Campanha inteira — R$ 34.600</span></div>
-    <div class="campo"></div>
-    <div class="rot">Nome do responsável pelo comitê</div>
-    <div class="campo"></div>
-    <div class="rot">CNPJ do comitê — a nota fiscal é emitida contra ele, nunca contra pessoa física</div>
-    <div class="campo"></div>
-    <div class="rot">Assinatura e data</div>
-  </div>
 
+  
   <p class="rodape">Proposta válida até 25/08/2026.<br>
-  Hugo Ouvidio · vídeo com IA · São Paulo e remoto</p>
+  Hugo Ouvidio · vídeo com IA · São Paulo e remoto<span class="so-print"><br>
+  Para responder esta proposta: (11) 95289-8354 · WhatsApp</span></p>
 
 </div>
 </body>
