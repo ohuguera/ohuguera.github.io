@@ -356,7 +356,7 @@
 <div class="fio" id="fio" aria-hidden="true"></div>
 
 <div class="ambiente" aria-hidden="true">
-  <video src="portfolio/video/hero.mp4" poster="portfolio/poster/hero.jpg" muted loop playsinline autoplay preload="metadata"></video>
+  <video src="portfolio/video/hero.mp4" poster="portfolio/poster/hero.jpg" muted loop playsinline webkit-playsinline autoplay preload="auto" disableremoteplayback></video>
 </div>
 <div class="veu" id="veu" aria-hidden="true"></div>
 
@@ -647,14 +647,36 @@
   addEventListener('resize', mede, {passive:true});
   mede();
 
-  /* --- ambiente pausa quando a aba some: bateria --- */
+  /* --- ambiente: insiste em tocar no celular ---
+     Autoplay falha no celular por tres motivos que nao aparecem no desktop:
+     modo economia de bateria, economia de dados e Reduzir Movimento. A page
+     nao aceita o primeiro nao: seta muted por PROPRIEDADE (atributo sozinho
+     nao basta em alguns navegadores), tenta de novo quando o video carrega,
+     e usa a primeira interacao (toque, clique ou rolagem) pra destravar o
+     play, que e o unico caminho quando o sistema exige gesto do usuario.
+     O ambiente e decorativo e sem som; ele toca mesmo com Reduzir Movimento
+     porque e a identidade da pagina (decisao do Hugo, 27/09/2026). As
+     animacoes de entrada e os filmes continuam respeitando a preferencia. --- */
   var fundo = document.querySelector('.ambiente video');
   if (fundo) {
+    var ligaFundo = function(){
+      fundo.muted = true;
+      var p = fundo.play(); if (p && p.catch) p.catch(function(){});
+    };
+    var destrava = function(){
+      if (fundo.paused) ligaFundo();
+      if (!fundo.paused) {
+        ['touchend','click','scroll'].forEach(function(ev){ removeEventListener(ev, destrava); });
+      }
+    };
+    ['touchend','click','scroll'].forEach(function(ev){ addEventListener(ev, destrava, {passive:true}); });
+    fundo.addEventListener('canplay', function(){ if (fundo.paused) ligaFundo(); });
+    addEventListener('pageshow', function(){ if (fundo.paused) ligaFundo(); });
     document.addEventListener('visibilitychange', function(){
       if (document.hidden) fundo.pause();
-      else if (!calmo) { var p = fundo.play(); if (p && p.catch) p.catch(function(){}); }
+      else ligaFundo();
     });
-    if (calmo) fundo.pause();
+    ligaFundo();
   }
 
   /* --- dock: acende o destino atual --- */
