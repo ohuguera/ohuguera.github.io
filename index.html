@@ -4,377 +4,676 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hugo Ouvidio · Vídeo com IA</title>
-<meta name="description" content="Vídeo para marca que precisa publicar toda semana. 370 entregas viraram 1.489 arquivos finais. São Paulo e remoto.">
-<meta name="theme-color" content="#040109">
+<meta name="description" content="Criativo novo toda semana, sem inflar a operação. Roteiro, imagem, som e montagem com IA: volume de agência, operação de uma pessoa. São Paulo e remoto.">
+<meta name="theme-color" content="#07070B">
 <link rel="canonical" href="https://ohuguera.com.br/">
 <link rel="icon" href="hugo-avatar.jpg">
 <link rel="apple-touch-icon" href="hugo-avatar.jpg">
-
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ohuguera.com.br/">
 <meta property="og:site_name" content="Hugo Ouvidio">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Uma produtora inteira. Uma pessoa só.">
-<meta property="og:description" content="Vídeo para marca que precisa publicar toda semana. 370 entregas viraram 1.489 arquivos finais.">
+<meta property="og:description" content="Criativo novo toda semana, sem inflar a operação. Volume de agência, operação de uma pessoa.">
 <meta property="og:image" content="https://ohuguera.com.br/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Uma produtora inteira. Uma pessoa só.">
-<meta name="twitter:description" content="Vídeo para marca que precisa publicar toda semana. 370 entregas viraram 1.489 arquivos finais.">
+<meta name="twitter:description" content="Criativo novo toda semana, sem inflar a operação. Volume de agência, operação de uma pessoa.">
 <meta name="twitter:image" content="https://ohuguera.com.br/og.jpg">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:wght@400;500;600;700;800&family=Ubuntu+Sans+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
+  /* ================= SISTEMA =================
+     Ambiente: o showreel roda FIXO atrás da página inteira, nítido.
+     Os painéis de vidro desfocam o ambiente LOCALMENTE (backdrop-filter),
+     que é como o visionOS constrói profundidade: o mundo fica atrás,
+     as janelas flutuam na frente e cada uma carrega seu próprio desfoque.
+     Tipo: Ubuntu Sans 800 pros títulos (-.04em), mono só pra dado.
+     Vidro: blur(26px) saturate(1.7), borda iluminada por cima, raio 24px.
+     Um acento só: #00BF6F. Nenhuma outra cor autoral. */
   :root{
-    --deep:#220439; --dark:#040109; --panel:#2D0E43; --plum:#251A2B;
-    --green:#00BF6F; --green-soft:rgba(0,191,111,.14);
-    --ink:#ECEDEE; --ink2:#D4D4D8; --mute:#9269A7;
-    --edge:rgba(255,255,255,.07);
+    --dark:#07070B;
+    --green:#00BF6F;
+    --ink:#F4F4F6; --ink2:#C9C9D2; --mute:#8E8E9C;
+    --glass:rgba(22,22,30,.52);
+    --glass-2:rgba(22,22,30,.68);          /* camada mais funda: mais opaca */
+    --edge:rgba(255,255,255,.13);
+    --edge-lit:rgba(255,255,255,.28);      /* borda de cima, iluminada */
+    --r:24px;
+    --gut:clamp(18px,4vw,72px);
+    --mono:'Ubuntu Sans Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  .dado{
+    font-family:var(--mono); font-size:12px; font-weight:500;
+    letter-spacing:.09em; text-transform:uppercase; color:var(--mute);
+    font-variant-numeric:tabular-nums;
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html{background:var(--dark)}
+  html{background:var(--dark); scroll-behavior:smooth}
   body{
-    background:
-      radial-gradient(90% 46% at 84% 0%, rgba(109,32,168,.42), transparent 68%),
-      radial-gradient(70% 34% at 6% 12%, rgba(0,191,111,.10), transparent 70%),
-      linear-gradient(180deg,var(--deep) 0%,#12032099 30%,var(--dark) 72%);
-    background-attachment:fixed; color:var(--ink);
-    font-family:'Ubuntu Sans',-apple-system,sans-serif; font-size:15px; line-height:1.5;
-    min-height:100svh; overflow-x:hidden; -webkit-font-smoothing:antialiased;
+    background:var(--dark); color:var(--ink);
+    font-family:'Ubuntu Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size:16px; line-height:1.5; overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
   }
-  .wrap{padding:0 18px; max-width:520px; margin:0 auto; width:100%}
-  .screen{min-height:100svh; display:flex; flex-direction:column; padding-bottom:8px}
+  img,video{display:block; max-width:100%}
+  a{color:inherit}
+  .wrap{width:100%; max-width:1680px; margin:0 auto; padding:0 var(--gut)}
 
-  /* ---------- topo ---------- */
-  header{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:18px 0 0}
-  .brand{display:flex; align-items:center; gap:10px}
-  .mark{width:34px; height:34px; border-radius:50%; flex:0 0 auto; overflow:hidden;
-        border:1.5px solid var(--green); background:var(--panel)}
-  .mark img{width:100%; height:100%; object-fit:cover; object-position:50% 30%; display:block}
-  .brand b{font-size:15px; font-weight:700; letter-spacing:-.01em}
-  .brand span{display:block; font-size:11px; color:var(--mute); font-weight:400; margin-top:-1px}
-  .pill{display:inline-flex; align-items:center; gap:7px; border-radius:100px;
-        background:var(--green-soft); color:var(--green); font-size:12px; font-weight:500;
-        padding:7px 13px; white-space:nowrap}
-  .pill::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--green)}
+  /* ---------- o ambiente: showreel fixo atrás de tudo ---------- */
+  .ambiente{position:fixed; inset:0; z-index:0; overflow:hidden}
+  .ambiente video, .ambiente img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  }
+  /* véu: quase nada no herói, escurece conforme rola (JS ajusta a opacidade) */
+  .veu{position:fixed; inset:0; z-index:1; pointer-events:none;
+       background:var(--dark); opacity:.32; transition:opacity .4s ease}
+  main{position:relative; z-index:2}
 
-  /* ---------- herói ---------- */
-  h1{margin-top:20px; font-size:clamp(30px,8.6vw,38px); font-weight:700; line-height:1.1;
-     letter-spacing:-.025em; text-wrap:balance}
+  /* ---------- vidro: a receita única ---------- */
+  .vidro{
+    background:var(--glass);
+    -webkit-backdrop-filter:blur(26px) saturate(1.7);
+    backdrop-filter:blur(26px) saturate(1.7);
+    border:1px solid var(--edge);
+    border-top-color:var(--edge-lit);
+    border-radius:var(--r);
+    box-shadow:0 24px 70px -30px rgba(0,0,0,.8);
+  }
+  .vidro-2{background:var(--glass-2)}
+  @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+    .vidro{background:rgba(16,16,24,.92)}
+  }
+
+  /* ---------- fio de progresso (mantido do site atual) ---------- */
+  .fio{position:fixed; top:0; left:0; right:0; height:2px; z-index:60;
+       background:var(--green); transform:scaleX(0); transform-origin:0 50%;
+       will-change:transform}
+
+  /* ---------- topo: só no desktop. no celular o dock assume. ---------- */
+  .fixo{
+    position:fixed; inset:14px 0 auto 0; z-index:50; pointer-events:none;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; padding:0 var(--gut);
+  }
+  .fixo > *{pointer-events:auto}
+  .quem{display:flex; align-items:center; gap:10px; text-decoration:none;
+        padding:8px 16px 8px 8px; border-radius:100px}
+  .quem .face{width:34px; height:34px; border-radius:50%; overflow:hidden; flex:0 0 auto;
+              border:1.5px solid var(--green)}
+  .quem .face img{width:100%; height:100%; object-fit:cover; object-position:50% 30%}
+  .quem b{font-size:14px; font-weight:700; letter-spacing:-.01em; line-height:1.15}
+  .quem span{display:block; margin-top:2px; font-family:var(--mono); font-size:10px;
+             font-weight:500; letter-spacing:.09em; text-transform:uppercase; color:var(--mute)}
+  .zap{
+    display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+    min-height:46px; padding:0 20px; border-radius:100px;
+    background:var(--green); color:#04140C; font-weight:700; font-size:14px;
+    letter-spacing:-.01em; transition:transform .18s ease, filter .18s ease;
+    box-shadow:0 10px 30px -10px rgba(0,191,111,.55);
+  }
+  .zap:hover{transform:translateY(-1px); filter:brightness(1.08)}
+  .zap svg{width:17px; height:17px; fill:currentColor; flex:0 0 auto}
+
+  /* ---------- dock: a janela de navegação do visionOS ----------
+     Pílula de vidro flutuando na base, sempre presente. No celular ela É o app:
+     quatro destinos, WhatsApp a um toque de qualquer ponto da página. */
+  .dock{
+    position:fixed; left:50%; bottom:calc(14px + env(safe-area-inset-bottom));
+    transform:translateX(-50%); z-index:55;
+    display:flex; align-items:center; gap:4px; padding:6px;
+    border-radius:100px;
+  }
+  .dock a{
+    display:inline-flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:3px; min-width:64px; min-height:48px; padding:6px 12px;
+    border-radius:100px; text-decoration:none;
+    font-family:var(--mono); font-size:9px; font-weight:600;
+    letter-spacing:.08em; text-transform:uppercase; color:var(--ink2);
+    transition:background .2s ease, color .2s ease;
+  }
+  .dock a svg{width:18px; height:18px; fill:currentColor}
+  .dock a:hover{background:rgba(255,255,255,.1); color:#fff}
+  .dock a.viva{background:rgba(255,255,255,.14); color:#fff}
+  .dock a.d-zap{background:var(--green); color:#04140C}
+  .dock a.d-zap:hover{background:var(--green); filter:brightness(1.08)}
+
+  /* ---------- herói: o ambiente nítido, o nome por cima ---------- */
+  .heroi{min-height:100svh; display:flex; align-items:flex-end;
+         padding-bottom:calc(clamp(90px,12vh,150px))}
+  h1{font-size:clamp(52px,11.5vw,180px); font-weight:800; line-height:.88;
+     letter-spacing:-.045em; text-wrap:balance; text-shadow:0 2px 40px rgba(4,1,9,.6)}
   h1 em{font-style:normal; color:var(--green)}
-  .lead{margin-top:12px; margin-bottom:22px; font-size:15px; line-height:1.55;
-        color:var(--ink2); max-width:34ch}
-  .lead b{color:#fff; font-weight:600}
+  .sub{margin-top:clamp(18px,3vw,30px); max-width:46ch;
+       font-size:clamp(16px,1.6vw,21px); line-height:1.5; color:var(--ink2)}
+  .sub b{color:#fff; font-weight:600}
 
-  /* ---------- prova na dobra: 370 → 1.489 ----------
-     Substituiu o slot de vídeo, os três números soltos e a fileira de marcas (Hugo, 17/08).
-     O par vem nessa ordem porque o 1.489 sozinho convida o comprador a dividir o preço por 1.489
-     e concluir que vídeo é barato. Com o 370 na frente, o multiplicador vira pipeline. */
-  /* margin-top:auto aqui e no nav: o espaço livre da tela alta se divide igual entre os dois,
-     então o bloco flutua no meio em vez de grudar embaixo da copy e deixar um buraco antes dos
-     botões. Em tela baixa o auto vira zero e quem garante o respiro é o margin-bottom da .lead. */
-  /* o padding cresce com a altura da tela: sem o slot de vídeo, é este bloco que tem de ocupar
-     o corpo da dobra. Em celular alto ele respira; em tela baixa encolhe e não empurra os botões. */
-  .prova{margin-top:auto; border-radius:18px; background:rgba(45,14,67,.55);
-         border:1px solid var(--edge); padding:clamp(18px,5.4vh,46px) 12px;
-         display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:8px}
-  .prova .n{font-size:clamp(32px,10.4vw,46px); font-weight:800; line-height:1; letter-spacing:-.035em;
-            text-align:center; color:#fff; font-variant-numeric:tabular-nums}
-  .prova .b .n{color:var(--green)}
-  .prova .k{font-size:11.5px; color:var(--mute); text-align:center; margin-top:7px; line-height:1.3}
-  .prova .seta{color:var(--mute); font-size:17px; padding-bottom:14px}
-  .prova-nota{margin-top:10px; font-size:12.5px; color:var(--mute); line-height:1.5; text-align:center}
-  .prova-nota b{color:var(--ink2); font-weight:600}
+  /* a tira agora é uma janela de vidro flutuando sobre o vídeo */
+  .tira{display:inline-flex; flex-wrap:wrap; gap:10px clamp(22px,3.4vw,52px);
+        margin-top:clamp(24px,4vh,44px); padding:16px clamp(18px,2.6vw,30px)}
+  .tira span{display:inline-flex; align-items:baseline; gap:8px; font-size:11px}
+  .tira b{font-size:15px; font-weight:700; color:var(--green);
+          font-variant-numeric:tabular-nums; letter-spacing:.02em}
 
-  /* ---------- marcas ---------- */
-  .brands{margin-top:16px; display:flex; flex-wrap:wrap; gap:6px; justify-content:center}
-  .chip{border-radius:100px; background:rgba(45,14,67,.5); border:1px solid var(--edge);
-        padding:6px 12px; font-size:12px; color:var(--ink2)}
-  .chip.more{color:var(--mute)}
-
-  /* ---------- as duas portas ---------- */
-  nav{margin-top:auto; padding-top:22px}
-  a.btn{display:flex; align-items:center; justify-content:center; gap:9px; min-height:54px;
-        border-radius:12px; text-decoration:none; font-size:16px; font-weight:600;
-        letter-spacing:-.01em; margin-bottom:9px}
-  a.btn.go{background:var(--green); color:var(--plum)}
-  a.btn.see{background:var(--plum); color:#fff; border:1px solid var(--edge)}
-  a.btn.see .ar{color:var(--green); font-weight:700}
-  a.btn:active{transform:translateY(1px)}
-  .fine{text-align:center; font-size:12px; color:var(--mute); margin-top:11px}
-
-  /* ---------- abaixo da dobra ---------- */
-  .sect{padding-top:44px}
-  .eyebrow{font-size:12px; font-weight:600; color:var(--green); margin-bottom:8px}
-  .sect h2{font-size:24px; font-weight:700; letter-spacing:-.025em; line-height:1.15}
-  .sect p.sub{margin-top:8px; font-size:14px; color:var(--mute); max-width:36ch}
-
-  /* trampos — ritmo: 1 destaque largo, 2 verticais lado a lado, 1 largo de fechamento.
-     O quarto é largo de propósito: é o único que não é iGaming de estúdio (evento, campo),
-     e um card estreito o esconderia no rodapé da grade. */
-  .tiles{margin-top:18px; display:grid; grid-template-columns:1fr 1fr; gap:10px}
-  a.tile{grid-column:span 1; border-radius:16px; background:rgba(45,14,67,.55);
-         border:1px solid var(--edge); padding:10px; text-decoration:none; color:inherit;
-         display:block}
-  a.tile.big,
-  a.tile.wide{grid-column:span 2}
-  a.tile:active{transform:translateY(1px)}
-  .cover{position:relative; border-radius:11px; overflow:hidden; background:rgba(4,1,9,.5);
-         aspect-ratio:4/5; display:grid; place-items:center}
-  a.tile.big .cover{aspect-ratio:16/10}
-  a.tile.wide .cover{aspect-ratio:16/9}
-  .cover img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block}
-  .cover .ph{font-size:11px; color:var(--mute); text-align:center; padding:8px; line-height:1.5}
-  .badge{position:absolute; z-index:2; left:9px; top:9px; border-radius:100px;
-         background:rgba(4,1,9,.72); backdrop-filter:blur(8px); border:1px solid var(--edge);
-         padding:5px 10px; font-size:11px; font-weight:600; color:var(--green)}
-  .tname{margin-top:10px; font-size:15px; font-weight:600; display:flex; align-items:center; gap:6px}
-  .tname .ar{color:var(--green); font-size:13px}
-  .tkind{font-size:12px; color:var(--mute); line-height:1.4; margin-top:1px}
-
-  /* Saída para o Behance. Fica DEPOIS dos quatro cards, e é link de texto, não terceiro botão:
-     se virasse botão, competiria com o WhatsApp, que é o único lugar onde essa página vira
-     dinheiro. Aqui ele pega exatamente quem acabou de ver os quatro e quer mais.
-
-     Duas linhas empilhadas, e nao uma linha de flex: no celular a frase inteira nao cabe em
-     390px, e com flex a seta ia parar sozinha na lateral enquanto o texto quebrava no meio.
-     Bloco centrado quebra onde eu mandei quebrar. */
-  .mais{display:block; margin-top:22px; padding:14px 16px; border-radius:14px;
-        border:1px solid var(--edge); background:rgba(45,14,67,.34);
-        color:var(--mute); text-decoration:none; font-size:13px; text-align:center;
-        line-height:1.45}
-  .mais b{display:block; color:#fff; font-weight:600; font-size:14px; margin-top:2px}
-  .mais .ar{color:var(--green); font-weight:700; font-size:12px; margin-left:5px}
-  .mais:active{transform:translateY(1px)}
-
-  /* ---------- ritmo: 370 → 1.489 ----------
-     Os dois números andam juntos e nessa ordem de propósito. O 1.489 sozinho convida o comprador
-     a dividir o preço por 1.489 e concluir que vídeo é barato — ou a pensar "então não é vídeo,
-     é variação de corte". Com o 370 na frente, o multiplicador vira explicação de pipeline
-     em vez de pedido de desconto. */
-  .ritmo-nota{margin-top:16px; font-size:13.5px; color:var(--ink2); line-height:1.6; max-width:40ch}
-  .ritmo-nota b{color:#fff; font-weight:600}
-
-  /* os três números que saíram da dobra vivem aqui: na dobra eles competiam com o par 370/1.489;
-     aqui embaixo eles sustentam o par, que é exatamente a função deles */
-  .nums{margin-top:16px; display:grid; grid-template-columns:repeat(3,1fr); gap:8px}
-  .num{border-radius:12px; background:rgba(45,14,67,.55); border:1px solid var(--edge);
-       padding:13px 8px; text-align:center}
-  .num .n{font-size:21px; font-weight:700; line-height:1; letter-spacing:-.025em; color:#fff}
-  .num .n em{font-style:normal; color:var(--green)}
-  .num .k{font-size:11px; color:var(--mute); margin-top:6px; line-height:1.3}
-
-  .kinds{margin-top:18px; display:flex; flex-direction:column; gap:9px}
-  .kind{border-radius:14px; background:rgba(45,14,67,.55); border:1px solid var(--edge);
-        padding:14px 16px; display:flex; align-items:center; gap:13px}
-  .kind .dot{width:34px; height:34px; border-radius:10px; background:var(--green-soft);
-             color:var(--green); display:grid; place-items:center; font-weight:700; font-size:14px;
-             flex:0 0 auto}
-  .kind .t{font-size:15px; font-weight:600}
-  .kind .d{font-size:12.5px; color:var(--mute); margin-top:1px}
-
-  /* ---------- quem faz ---------- */
-  .who{margin-top:18px; position:relative; border-radius:18px; overflow:hidden;
-       border:1px solid var(--edge); background:var(--panel)}
-  .who>img{display:block; width:100%; aspect-ratio:4/5; object-fit:cover; object-position:50% 26%;
-           filter:contrast(1.05) saturate(.84) brightness(.9)}
-  .who::after{content:''; position:absolute; inset:0; pointer-events:none;
-    background:
-      /* a luz violeta passa longe do rosto de propósito — pele com cast roxo parece erro de cor */
-      radial-gradient(56% 30% at 96% 2%, rgba(109,32,168,.45), transparent 68%),
-      linear-gradient(180deg, rgba(4,1,9,0) 30%, rgba(4,1,9,.55) 62%, rgba(4,1,9,.95) 92%);}
-  .who .cap{position:absolute; z-index:2; left:17px; right:17px; bottom:16px}
-  .who .cap b{display:block; font-size:20px; font-weight:700; letter-spacing:-.02em}
-  .who .cap p{margin-top:5px; font-size:13.5px; color:var(--ink2); line-height:1.5; max-width:30ch}
-  .facts{margin-top:12px; display:flex; flex-wrap:wrap; gap:6px}
-
-  .foot{padding:32px 0 38px; text-align:center; font-size:12px; color:var(--mute)}
-
-  /* telas baixas: as duas portas continuam acima da dobra */
-  @media (max-height:780px){
-    header{padding-top:12px}
-    h1{margin-top:14px; font-size:clamp(26px,7.6vw,32px)}
-    .lead{margin-top:9px; margin-bottom:16px; font-size:14px}
-    .prova{padding:14px 10px}
-    .prova .n{font-size:clamp(26px,8vw,32px)} .prova .k{margin-top:5px}
-    .prova-nota{margin-top:8px; font-size:12px}
-    .chip{padding:5px 10px; font-size:11px}
-    nav{padding-top:14px} a.btn{min-height:50px; font-size:15px; margin-bottom:7px}
-    .fine{margin-top:8px}
+  /* ---------- rótulo de seção (numeração mantida) ---------- */
+  body{counter-reset:sec}
+  .secao{padding:clamp(70px,13vh,190px) 0; counter-increment:sec}
+  .rotulo{display:flex; flex-direction:column; align-items:flex-start;
+          padding-bottom:clamp(24px,3.4vw,46px)}
+  .rotulo i{
+    order:-1; display:inline-flex; align-items:center; gap:14px;
+    margin-bottom:clamp(18px,2.4vw,30px); padding:10px 18px; border-radius:100px;
+    font-family:var(--mono); font-style:normal; font-size:12px; font-weight:500;
+    letter-spacing:.09em; text-transform:uppercase; color:var(--green);
+    font-variant-numeric:tabular-nums;
   }
-  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  .rotulo i::before{content:counter(sec,decimal-leading-zero) ' /';
+                    color:var(--mute); font-weight:600; flex:0 0 auto}
+  .rotulo h2{font-size:clamp(34px,6.2vw,82px); font-weight:800; line-height:.94;
+             letter-spacing:-.042em; text-shadow:0 2px 30px rgba(4,1,9,.55)}
+  .rotulo p{font-size:16px; color:var(--ink2); max-width:52ch;
+            margin-top:clamp(12px,1.6vw,20px); text-shadow:0 1px 14px rgba(4,1,9,.6)}
+
+  /* ---------- filmes: cada um é uma janela espacial ----------
+     O palco (vídeo) é uma janela; a ficha é OUTRA janela menor que
+     flutua sobrepondo o canto do palco. Duas camadas = profundidade. */
+  .filme{position:relative; margin-bottom:clamp(64px,12vh,160px)}
+  .filme:last-child{margin-bottom:0}
+  .palco{position:relative; border-radius:var(--r); overflow:hidden; cursor:pointer;
+         border:1px solid var(--edge); border-top-color:var(--edge-lit);
+         box-shadow:0 40px 110px -40px rgba(0,0,0,.9)}
+  .palco video{width:100%; height:auto}
+  .som{
+    position:absolute; right:16px; bottom:16px; z-index:3;
+    display:inline-flex; align-items:center; gap:8px;
+    min-height:44px; padding:0 18px; border-radius:100px;
+    background:rgba(10,10,16,.5);
+    -webkit-backdrop-filter:blur(16px) saturate(1.5); backdrop-filter:blur(16px) saturate(1.5);
+    border:1px solid var(--edge); color:var(--ink);
+    font-family:var(--mono); font-size:11px; font-weight:500;
+    letter-spacing:.09em; text-transform:uppercase; transition:background .18s ease;
+  }
+  .palco.ligado .som{background:var(--green); color:#04140C; border-color:transparent}
+  .som svg{width:16px; height:16px; fill:currentColor}
+  .ficha{
+    position:relative; z-index:3;
+    width:min(560px,92%); margin-top:-clamp(30px,5vw,70px);
+    margin-left:clamp(14px,3vw,48px);
+    padding:clamp(20px,2.6vw,30px);
+  }
+  .filme:nth-child(odd) .ficha{margin-left:auto; margin-right:clamp(14px,3vw,48px)}
+  .ficha h3{font-size:clamp(20px,2.4vw,30px); font-weight:700; letter-spacing:-.025em}
+  .ficha p{font-size:15px; color:var(--ink2); margin-top:9px; max-width:56ch}
+  .ficha .meta{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
+  .tag{font-family:var(--mono); font-size:11px; font-weight:500;
+       letter-spacing:.09em; text-transform:uppercase; font-variant-numeric:tabular-nums;
+       padding:7px 13px; border-radius:100px; white-space:nowrap;
+       border:1px solid rgba(0,191,111,.42); color:var(--green)}
+  .tag.cinza{border-color:var(--edge); color:var(--mute);
+             text-transform:none; letter-spacing:.04em}
+
+  /* ---------- dentro do trabalho: as imagens da série B ---------- */
+  .mundos{display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(14px,1.8vw,26px)}
+  .mundo{position:relative; border-radius:var(--r); overflow:hidden;
+         border:1px solid var(--edge); border-top-color:var(--edge-lit);
+         box-shadow:0 30px 90px -40px rgba(0,0,0,.9); background:var(--glass-2)}
+  .mundo img{width:100%; height:100%; object-fit:cover; aspect-ratio:16/9}
+  .mundo figcaption{
+    position:absolute; inset:auto 12px 12px 12px; z-index:2;
+    padding:14px 18px; border-radius:16px;
+  }
+  .mundo b{display:block; font-size:15px; font-weight:700; letter-spacing:-.015em}
+  .mundo span{display:block; margin-top:4px; font-family:var(--mono); font-size:11px;
+              line-height:1.45; letter-spacing:.02em; color:var(--ink2)}
+  /* ---------- campanhas: capas em vidro ---------- */
+  .grade{columns:3; column-gap:clamp(14px,1.6vw,24px)}
+  .cartao{
+    display:block; break-inside:avoid; margin-bottom:clamp(14px,1.6vw,24px);
+    border-radius:var(--r); overflow:hidden; position:relative;
+    border:1px solid var(--edge); border-top-color:var(--edge-lit);
+    background:var(--glass-2); text-decoration:none;
+    box-shadow:0 24px 70px -34px rgba(0,0,0,.85);
+    transition:transform .3s cubic-bezier(.2,.7,.3,1), border-color .3s ease;
+  }
+  .cartao:hover{transform:translateY(-5px); border-color:rgba(0,191,111,.5)}
+  .cartao img{width:100%; height:auto; transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+  .cartao:hover img{transform:scale(1.035)}
+  .cartao::after{
+    content:'BEHANCE ↗'; position:absolute; top:12px; right:12px; z-index:2;
+    font-family:var(--mono); font-size:10px; font-weight:600; letter-spacing:.11em;
+    padding:7px 11px; border-radius:100px;
+    background:rgba(10,10,16,.6);
+    -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+    border:1px solid var(--edge); color:var(--ink);
+    opacity:0; transform:translateY(-4px); transition:opacity .25s ease, transform .25s ease;
+  }
+  .cartao:hover::after{opacity:1; transform:none}
+  .cartao figcaption{position:absolute; inset:auto 0 0 0; padding:44px 16px 14px;
+                     background:linear-gradient(180deg,transparent,rgba(7,7,11,.9))}
+  .cartao b{display:block; font-size:15px; font-weight:700; letter-spacing:-.015em}
+  .cartao span{display:block; margin-top:5px; font-family:var(--mono); font-size:11px;
+               line-height:1.45; letter-spacing:.02em; color:var(--mute)}
+  .cartao em{
+    position:absolute; top:12px; left:12px; z-index:2; font-style:normal;
+    font-family:var(--mono); font-size:10px; font-weight:600;
+    letter-spacing:.11em; text-transform:uppercase;
+    color:#04140C; background:var(--green); padding:7px 11px; border-radius:100px;
+  }
+  .destaque{border-color:rgba(0,191,111,.4)}
+  .destaque figcaption span{color:var(--ink2)}
+
+  /* ---------- o volume: painéis de vidro ---------- */
+  .numeros{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.6vw,24px)}
+  .n{padding:clamp(24px,3.2vw,42px)}
+  .n b{display:block; font-size:clamp(40px,6vw,74px); font-weight:800;
+       line-height:.92; letter-spacing:-.04em; color:var(--green);
+       font-variant-numeric:tabular-nums}
+  .n p{margin-top:10px; font-size:15px; color:var(--ink2)}
+  .curva{margin-top:clamp(24px,3.2vw,42px); padding:clamp(24px,3.2vw,42px)}
+  .curva h4{font-family:var(--mono); font-size:12px; font-weight:500;
+            letter-spacing:.09em; text-transform:uppercase; color:var(--mute);
+            padding-bottom:14px; border-bottom:1px solid var(--edge)}
+  .barras{display:flex; align-items:flex-end; gap:clamp(8px,1.4vw,22px);
+          --alt:clamp(130px,20vw,210px); margin-top:22px}
+  .barras div{flex:1; display:grid; grid-template-rows:var(--alt) auto auto;
+              justify-items:center; gap:7px}
+  .barras i{align-self:end; display:block; width:100%; border-radius:8px 8px 0 0;
+            background:linear-gradient(180deg,var(--green),rgba(0,191,111,.22));
+            transform-origin:bottom; transform:scaleY(0);
+            transition:transform .9s cubic-bezier(.2,.7,.3,1)}
+  .acesa .barras i{transform:scaleY(1)}
+  .barras u{font-style:normal; text-decoration:none; font-family:var(--mono);
+            font-size:12px; font-weight:600; font-variant-numeric:tabular-nums; color:var(--ink)}
+  .barras s{text-decoration:none; font-family:var(--mono); font-size:10px;
+            letter-spacing:.09em; text-transform:uppercase; color:var(--mute)}
+  .curva > p{margin-top:18px; padding-top:16px; border-top:1px solid var(--edge);
+             font-size:16px; color:var(--ink2); max-width:78ch}
+
+  /* ---------- porta: uma janela só, centrada, flutuando ---------- */
+  .porta{padding:clamp(80px,16vh,220px) 0 clamp(120px,16vh,180px)}
+  .porta .painel{max-width:860px; margin:0 auto; text-align:center;
+                 padding:clamp(40px,6vw,80px) clamp(24px,4vw,64px)}
+  .porta h2{font-size:clamp(34px,6.4vw,84px); font-weight:800; line-height:.95;
+            letter-spacing:-.04em; text-wrap:balance}
+  .porta p{margin:clamp(16px,2.4vw,26px) auto 0; max-width:48ch;
+           font-size:clamp(15px,1.5vw,19px); color:var(--ink2)}
+  .porta .zap{margin-top:clamp(26px,4vw,44px); min-height:56px; padding:0 30px; font-size:16px}
+  .rodape{padding:30px 0 0; border-top:1px solid var(--edge); margin-top:clamp(40px,6vh,70px);
+          display:flex; gap:10px 26px; flex-wrap:wrap; justify-content:center; align-items:center;
+          font-family:var(--mono); font-size:11px; font-weight:500;
+          letter-spacing:.09em; text-transform:uppercase; color:var(--mute)}
+  .rodape a{color:var(--mute); text-decoration:none; min-height:44px;
+            display:inline-flex; align-items:center}
+  .rodape a:hover{color:var(--green)}
+
+  /* ---------- acender ao entrar em quadro ---------- */
+  .acende{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1)}
+  .acende.acesa{opacity:1; transform:none}
+
+  /* ================= CELULAR: lógica de app =================
+     A página vira painéis de tela cheia com snap. O dock carrega tudo.
+     O topo some: no polegar, navegação mora embaixo. */
+  @media (max-width:760px){
+    html{scroll-snap-type:y proximity}
+    .fixo{display:none}
+    .heroi,.secao{scroll-snap-align:start}
+    .secao{padding:clamp(56px,10vh,90px) 0 110px}
+    .heroi{padding-bottom:130px}
+    .mundos{grid-template-columns:1fr}
+    /* campanhas viram esteira horizontal: gesto de app, um card por vez */
+    .grade{columns:auto; display:flex; gap:14px; overflow-x:auto;
+           scroll-snap-type:x mandatory; padding-bottom:12px;
+           margin:0 calc(-1 * var(--gut)); padding-left:var(--gut); padding-right:var(--gut);
+           -webkit-overflow-scrolling:touch}
+    .grade::-webkit-scrollbar{display:none}
+    .cartao{flex:0 0 82%; scroll-snap-align:center; margin-bottom:0}
+    .cartao img{aspect-ratio:4/5; object-fit:cover}
+    .cartao::after{opacity:1; transform:none}
+    .numeros{grid-template-columns:1fr}
+    .ficha{width:auto; margin:-24px 10px 0 10px !important}
+    .filme{margin-bottom:clamp(48px,8vh,80px)}
+  }
+  @media (max-width:760px) and (prefers-reduced-motion:no-preference){
+    .dock{animation:sobe .6s cubic-bezier(.2,.7,.3,1) both .4s}
+    @keyframes sobe{from{transform:translate(-50%,80px); opacity:0}
+                    to{transform:translate(-50%,0); opacity:1}}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none !important; transition-duration:.01ms !important}
+    .acende{opacity:1; transform:none}
+    .barras i{transform:scaleY(1)}
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
- <div class="screen">
 
-  <header>
-    <div class="brand">
-      <div class="mark"><img src="hugo-avatar.jpg" alt="Hugo Ouvidio"></div>
-      <div><b>Hugo Ouvidio</b><span>Vídeo com IA</span></div>
-    </div>
-    <div class="pill">Aceitando projeto</div>
-  </header>
+<div class="fio" id="fio" aria-hidden="true"></div>
 
-  <h1>Uma produtora inteira.<br><em>Uma pessoa só.</em></h1>
-  
-  <p class="lead">Para marca que precisa de vídeo <b>toda semana</b>, não uma vez por mês. Você não contrata uma peça. Contrata a <b>operação inteira</b>.</p>
+<div class="ambiente" aria-hidden="true">
+  <video src="portfolio/video/hero.mp4" poster="portfolio/poster/hero.jpg" muted loop playsinline autoplay preload="metadata"></video>
+</div>
+<div class="veu" id="veu" aria-hidden="true"></div>
 
-  
-  <div class="prova">
-    <div class="a"><div class="n">370</div><div class="k">entregas</div></div>
-    <div class="seta">→</div>
-    <div class="b"><div class="n" id="cnt">1.489</div><div class="k">arquivos finais</div></div>
-  </div>
-  <p class="prova-nota">Cinco meses seguidos acima de <b>250 arquivos por mês</b>.</p>
-
-  <nav>
-    <a class="btn go" href="https://wa.me/5511952898354?text=Vim%20pelo%20Instagram%20e%20quero%20um%20or%C3%A7amento" target="_blank" rel="noopener">Quero um orçamento</a>
-    <a class="btn see" href="#trampos">Ver o trabalho <span class="ar">↓</span></a>
-    <p class="fine">Resposta no mesmo dia · São Paulo e remoto</p>
-  </nav>
-
- </div>
-
- 
- <section class="sect" id="trampos">
-   <div class="eyebrow">Trabalho selecionado</div>
-   <h2>Quatro que valem a visita</h2>
-   <p class="sub">Escolhidos por ele. Cada um abre no post original.</p>
-   <div class="tiles">
-
-     <a class="tile big" href="https://www.instagram.com/p/DIbdQRYyon1/" target="_blank" rel="noopener">
-       <div class="cover">
-         <span class="badge">+2 mi de views</span>
-         <span class="ph">[ capa-01.jpg ]</span>
-         <img src="capa-01.jpg" alt="" onerror="this.remove()">
-       </div>
-       <div class="tname">REALS BET × A.C. Milan <span class="ar">↗</span></div>
-       <div class="tkind">Anúncio oficial da parceria. Captação em Milão, edição, som e cor. Abertura com Rodrigo Faro.</div>
-     </a>
-
-     <a class="tile" href="https://www.instagram.com/p/DRrtQTKjee0/" target="_blank" rel="noopener">
-       <div class="cover">
-         <span class="ph">[ capa-02.jpg ]</span>
-         <img src="capa-02.jpg" alt="" onerror="this.remove()">
-       </div>
-       <div class="tname">Black Friday <span class="ar">↗</span></div>
-       <div class="tkind">REALS BET · cenas inteiras geradas a partir de uma foto do set</div>
-     </a>
-
-     <a class="tile" href="https://www.instagram.com/p/DR15D1PkuBy/" target="_blank" rel="noopener">
-       <div class="cover">
-         <span class="badge">100% IA</span>
-         <span class="ph">[ capa-03.jpg ]</span>
-         <img src="capa-03.jpg" alt="" onerror="this.remove()">
-       </div>
-       <div class="tname">REALS DAY <span class="ar">↗</span></div>
-       <div class="tkind">Os personagens do slot dentro do Mundo Invertido de Stranger Things</div>
-     </a>
-
-     
-     <a class="tile wide" href="https://www.instagram.com/reel/DPB8EGHEvWD/" target="_blank" rel="noopener">
-       <div class="cover">
-         <span class="badge">4 dias em campo</span>
-         <span class="ph">[ capa-04.jpg ]</span>
-         <img src="capa-04.jpg" alt="" onerror="this.remove()">
-       </div>
-       <div class="tname">Motorgrid Weekend <span class="ar">↗</span></div>
-       <div class="tkind">Cobertura de ponta a ponta. Captação no meio da pista, corte e finalização no ritmo dos quatro dias.</div>
-     </a>
-
-   </div>
-
-   
-   <a class="mais" href="https://www.behance.net/hugoouvidio" target="_blank" rel="noopener">
-     Quatro é o recorte.
-     <b>O portfólio inteiro está no Behance <span class="ar">↗</span></b>
-   </a>
-
-   
-   <div class="brands">
-     <span class="chip">McDonald's</span>
-     <span class="chip">REALS.bet</span>
-     <span class="chip">Bingo.bet</span>
-     <span class="chip">A.C. Milan</span>
-     <span class="chip more">+9 marcas</span>
-   </div>
- </section>
-
- 
- <section class="sect">
-   <div class="eyebrow">Ritmo</div>
-   <h2>Como 370 viram 1.489</h2>
-   <p class="sub">O número da dobra explicado. E os três que sustentam ele.</p>
-
-   <p class="ritmo-nota">Uma entrega vira <b>quatro arquivos, em média</b>: mesma gravação, mesma
-   direção, quatro cortes que podem ir para o ar. É por isso que o volume sobe sem que o prazo suba
-   junto. É isso que uma marca compra quando precisa publicar toda semana.</p>
-
-   <div class="nums">
-     <div class="num"><div class="n">1 <em>→</em> 8</div><div class="k">por dia</div></div>
-     <div class="num"><div class="n">228</div><div class="k">na Copa da Bingo.bet</div></div>
-     <div class="num"><div class="n">405</div><div class="k">cadastros</div></div>
-   </div>
- </section>
-
- <section class="sect">
-   <div class="eyebrow">O que entra na conta</div>
-   <h2>Três frentes, um só fornecedor</h2>
-   <div class="kinds">
-     <div class="kind"><div class="dot">01</div>
-       <div><div class="t">Criativos em volume</div><div class="d">com variação para testar o que performa</div></div></div>
-     <div class="kind"><div class="dot">02</div>
-       <div><div class="t">Cortes com legenda</div><div class="d">prontos para feed, Reels e anúncio</div></div></div>
-     <div class="kind"><div class="dot">03</div>
-       <div><div class="t">Motion e peças de campanha</div><div class="d">para quando a marca precisa de filme, não de corte</div></div></div>
-   </div>
- </section>
-
- <section class="sect">
-   <div class="eyebrow">Quem faz</div>
-   <h2>Uma pessoa só</h2>
-   <p class="sub">Sem intermediário, sem repasse, sem telefone sem fio. Você fala com quem edita.</p>
-
-   <div class="who">
-     <img src="hugo-retrato.jpg" alt="Hugo Ouvidio">
-     <div class="cap">
-       <b>Hugo Ouvidio</b>
-       <p>Cinco anos fazendo vídeo para marca grande. Os últimos dois construindo a máquina que entrega no volume que a operação pede.</p>
-     </div>
-   </div>
-
-   <div class="facts">
-     <span class="chip">+5 anos</span>
-     <span class="chip">São Paulo · remoto</span>
-     <span class="chip">Aposta, esporte, consumo e TV</span>
-     <span class="chip">Resposta no mesmo dia</span>
-   </div>
-
-   <a class="btn go" style="margin-top:18px" href="https://wa.me/5511952898354?text=Vim%20pelo%20Instagram%20e%20quero%20um%20or%C3%A7amento" target="_blank" rel="noopener">Falar com o Hugo agora</a>
- </section>
-
- <p class="foot">Hugo Ouvidio · hugoleonardo1312@gmail.com</p>
+<div class="fixo">
+  <a class="quem vidro" href="#topo">
+    <span class="face"><img src="hugo-avatar.jpg" alt="" width="34" height="34"></span>
+    <b>Hugo Ouvidio<span>Vídeo com IA · São Paulo</span></b>
+  </a>
+  <a class="zap" href="https://wa.me/5511952898354?text=Vi%20seu%20portf%C3%B3lio.%20Quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.4.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/></svg>
+    WhatsApp
+  </a>
 </div>
 
+<nav class="dock vidro" aria-label="Navegação">
+  <a href="#filmes" data-alvo="filmes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Filmes</a>
+  <a href="#mundos" data-alvo="mundos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm7.9 9h-3a15 15 0 00-1.1-5.2A8 8 0 0119.9 11zM12 4c.9 1.2 1.7 3.5 1.9 7h-3.8c.2-3.5 1-5.8 1.9-7zM4.1 13h3a15 15 0 001.1 5.2A8 8 0 014.1 13zm3-2h-3a8 8 0 014.1-5.2A15 15 0 007.1 11zM12 20c-.9-1.2-1.7-3.5-1.9-7h3.8c-.2 3.5-1 5.8-1.9 7zm3.8-1.8a15 15 0 001.1-5.2h3a8 8 0 01-4.1 5.2z"/></svg>Mundos</a>
+  <a href="#volume" data-alvo="volume"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h3V10H4v10zm6.5 0h3V4h-3v16zM17 20h3v-7h-3v7z"/></svg>Ritmo</a>
+  <a class="d-zap" href="https://wa.me/5511952898354?text=Vi%20seu%20portf%C3%B3lio.%20Quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.4.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/></svg>Chamar</a>
+</nav>
+
+<main>
+
+<section class="heroi" id="topo">
+  <div class="wrap">
+    <h1>Eu faço o<br>filme <em>inteiro</em><br>sozinho.</h1>
+    <p class="sub">Roteiro, imagem, movimento, som e montagem. Tudo com inteligência artificial, do zero, sem equipe e sem locação. <b>Abaixo tocam três filmes completos.</b> Depois deles, as campanhas que já foram ao ar.</p>
+    <div class="tira vidro">
+      <span class="dado"><b>03</b> filmes completos</span>
+      <span class="dado"><b>11</b> campanhas no ar</span>
+      <span class="dado"><b>09</b> marcas atendidas</span>
+    </div>
+  </div>
+</section>
+
+<section class="secao" id="filmes">
+  <div class="wrap">
+    <div class="rotulo acende">
+      <h2>Filmes</h2>
+      <i class="vidro">feitos inteiros com IA</i>
+      <p>Cada um começou numa folha em branco. Nenhuma câmera, nenhum ator, nenhuma diária. São peças autorais, feitas por conta própria sobre jogos que eu gosto, não campanhas encomendadas por essas marcas. Clique para ligar o som.</p>
+    </div>
+
+    <article class="filme acende">
+      <div class="palco" data-som>
+        <video src="portfolio/video/counterstrike.mp4" poster="portfolio/poster/counterstrike.jpg" muted loop playsinline preload="none"></video>
+        <span class="som"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4zm13.5 3a4.5 4.5 0 00-2.5-4v8a4.5 4.5 0 002.5-4z"/></svg> som</span>
+      </div>
+      <div class="ficha vidro">
+        <h3>Counter-Strike · Dust II</h3>
+        <p>Trailer de 15 segundos. Vinte e quatro planos autorais que nunca existiram: nenhum frame veio de gameplay.</p>
+        <div class="meta"><span class="tag">autoral</span><span class="tag cinza">15 s · 16:9</span></div>
+      </div>
+    </article>
+
+    <article class="filme acende">
+      <div class="palco" data-som>
+        <video src="portfolio/video/steep.mp4" poster="portfolio/poster/steep.jpg" muted loop playsinline preload="none"></video>
+        <span class="som"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4zm13.5 3a4.5 4.5 0 00-2.5-4v8a4.5 4.5 0 002.5-4z"/></svg> som</span>
+      </div>
+      <div class="ficha vidro">
+        <h3>STEEP · Alpes</h3>
+        <p>Trailer de jogo de esporte de montanha. Esqui, parapente e drone em altitude: o tipo de plano que, filmado de verdade, exige uma semana de equipe nos Alpes.</p>
+        <div class="meta"><span class="tag">autoral</span><span class="tag cinza">15 s · 16:9</span></div>
+      </div>
+    </article>
+
+    <article class="filme acende">
+      <div class="palco" data-som>
+        <video src="portfolio/video/granturismo.mp4" poster="portfolio/poster/granturismo.jpg" muted loop playsinline preload="none"></video>
+        <span class="som"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4zm13.5 3a4.5 4.5 0 00-2.5-4v8a4.5 4.5 0 002.5-4z"/></svg> som</span>
+      </div>
+      <div class="ficha vidro">
+        <h3>Gran Turismo · pista</h3>
+        <p>Trailer narrado de jogo de corrida. A voz também é sintética, dirigida linha por linha até parar de soar como robô.</p>
+        <div class="meta"><span class="tag">autoral</span><span class="tag cinza">15 s · narrado</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="secao" id="mundos">
+  <div class="wrap">
+    <div class="rotulo acende">
+      <h2>Dentro do trabalho</h2>
+      <i class="vidro">imagens geradas · eu incluso</i>
+      <p>Nenhuma destas cenas aconteceu. Sou eu, colocado pela IA dentro dos projetos que fiz. O mesmo processo coloca qualquer marca em qualquer lugar.</p>
+    </div>
+
+    <div class="mundos acende">
+      <figure class="mundo">
+        <img src="portfolio/ia/milan.jpg" alt="Hugo dentro do universo da campanha REALS BET com o A.C. Milan" loading="lazy" width="1920" height="1086">
+        <figcaption class="vidro"><b>REALS BET × A.C. Milan</b><span>eu, dentro do universo da campanha</span></figcaption>
+      </figure>
+
+      <figure class="mundo">
+        <img src="portfolio/ia/blackfriday.jpg" alt="Hugo no set backstage da campanha de Black Friday" loading="lazy" width="1920" height="1086">
+        <figcaption class="vidro"><b>Black Friday · com Rodrigo Faro</b><span>eu, no set da campanha</span></figcaption>
+      </figure>
+
+      <figure class="mundo">
+        <img src="portfolio/ia/realsday.jpg" alt="Hugo dentro do cenário da experiência REALS DAY" loading="lazy" width="1920" height="1086">
+        <figcaption class="vidro"><b>REALS DAY</b><span>eu, na experiência cinematográfica</span></figcaption>
+      </figure>
+
+      <figure class="mundo">
+        <img src="portfolio/ia/counterstrike.jpg" alt="Hugo na rua de Dust II do filme autoral de Counter-Strike" loading="lazy" width="1920" height="1086">
+        <figcaption class="vidro"><b>Counter-Strike · Dust II</b><span>eu, dentro do filme autoral</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="secao" id="campanhas">
+  <div class="wrap">
+    <div class="rotulo acende">
+      <h2>Campanhas</h2>
+      <i class="vidro">que foram ao ar</i>
+      <p>Onze projetos para marca, com peça publicada. Clique em qualquer um para abrir o estudo de caso completo.</p>
+    </div>
+
+    <div class="grade acende">
+      <a class="cartao destaque" href="https://www.behance.net/gallery/240505309/black-friday" target="_blank" rel="noopener">
+        <img src="portfolio/capas/240505309.jpg" alt="Black Friday com Rodrigo Faro" loading="lazy" width="1200" height="675">
+        <em>com Rodrigo Faro</em>
+        <figcaption><b>Black Friday</b><span>Cena real misturada com IA, quando quase ninguém fazia isso</span></figcaption>
+      </a>
+      <a class="cartao destaque" href="https://www.behance.net/gallery/240448925/ac-milan-reals-bet" target="_blank" rel="noopener">
+        <img src="portfolio/capas/240448925.jpg" alt="Campanha REALS BET, patrocínio do A.C. Milan" loading="lazy" width="1200" height="1200">
+        <em>A.C. Milan</em>
+        <figcaption><b>REALS BET</b><span>Patrocínio global do clube. Estive em Milão, no San Siro, no clássico contra a Inter.</span></figcaption>
+      </a>
+      <a class="cartao" href="https://www.behance.net/gallery/240495189/reals-day" target="_blank" rel="noopener">
+        <img src="portfolio/capas/240495189.jpg" alt="REALS DAY" loading="lazy" width="1200" height="1200">
+        <figcaption><b>REALS DAY</b><span>Experiência cinematográfica</span></figcaption>
+      </a>
+      <a class="cartao" href="https://www.behance.net/gallery/241256331/bingo-bet" target="_blank" rel="noopener">
+        <img src="portfolio/capas/241256331.jpg" alt="BINGO BET" loading="lazy" width="1200" height="509">
+        <figcaption><b>BINGO BET</b><span>Comercial 100% IA</span></figcaption>
+      </a>
+      <a class="cartao" href="https://www.behance.net/gallery/240493671/campanha-tematica" target="_blank" rel="noopener">
+        <img src="portfolio/capas/240493671.jpg" alt="Campanha temática" loading="lazy" width="669" height="1200">
+        <figcaption><b>Campanha temática</b><span>Conceito de série</span></figcaption>
+      </a>
+      <a class="cartao" href="https://www.behance.net/gallery/241606095/reals-vip" target="_blank" rel="noopener">
+        <img src="portfolio/capas/241606095.jpg" alt="REALS VIP" loading="lazy" width="1200" height="669">
+        <figcaption><b>REALS VIP</b><span>Depoimento de cliente</span></figcaption>
+      </a>
+      <a class="cartao" href="https://www.behance.net/gallery/240518337/ativacoes-de-marca" target="_blank" rel="noopener">
+        <img src="portfolio/capas/240518337.jpg" alt="Ativações de marca" loading="lazy" width="1200" height="800">
+        <figcaption><b>Ativações de marca</b><span>Série para iGaming</span></figcaption>
+      </a>
+      <a class="cartao" href="https://www.behance.net/gallery/240520673/halloween" target="_blank" rel="noopener">
+        <img src="portfolio/capas/240520673.jpg" alt="Halloween" loading="lazy" width="1200" height="938">
+        <figcaption><b>Halloween</b><span>Campanha sazonal</span></figcaption>
+      </a>
+      <a class="cartao" href="https://www.behance.net/gallery/240523083/sportsbook" target="_blank" rel="noopener">
+        <img src="portfolio/capas/240523083.jpg" alt="Sportsbook" loading="lazy" width="1200" height="938">
+        <figcaption><b>Sportsbook</b><span>Campanhas de esporte</span></figcaption>
+      </a>
+      <a class="cartao" href="https://www.behance.net/gallery/242515737/sportsbook-bingo-bet" target="_blank" rel="noopener">
+        <img src="portfolio/capas/242515737.jpg" alt="Sportsbook BINGO BET" loading="lazy" width="685" height="1200">
+        <figcaption><b>Sportsbook · BINGO BET</b><span>Peças de campanha</span></figcaption>
+      </a>
+      <a class="cartao" href="https://www.behance.net/gallery/240519803/experimentos-visuais" target="_blank" rel="noopener">
+        <img src="portfolio/capas/240519803.jpg" alt="Experimentos visuais" loading="lazy" width="1200" height="938">
+        <figcaption><b>Experimentos visuais</b><span>Pesquisa de linguagem</span></figcaption>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="secao" id="volume">
+  <div class="wrap">
+    <div class="rotulo acende">
+      <h2>O volume</h2>
+      <i class="vidro">por que marca não escala</i>
+      <p>Filme bonito toda marca consegue fazer uma vez. O jogo de verdade é o de toda semana: criativo novo no ar antes do anterior cansar.</p>
+    </div>
+
+    <div class="numeros acende">
+      <div class="n vidro"><b>A dor</b><p>O anúncio satura em dias, o algoritmo pune quem repete e a marca que publica pouco some do feed. Quem não escala criativo não escala tráfego.</p></div>
+      <div class="n vidro"><b>O porquê</b><p>Produção tradicional escala contratando: mais set, mais equipe, mais prazo. O custo cresce junto com o volume, então o volume para onde o orçamento para.</p></div>
+      <div class="n vidro"><b>A saída</b><p>Com IA, uma ideia aprovada vira uma família de criativos: variações de gancho, formato e duração pra testar no tráfego. Volume de agência, operação de uma pessoa.</p></div>
+    </div>
+
+    <div class="curva vidro acende">
+      <h4>Como funciona · estilo agência</h4>
+      <p>Entra o briefing, sai a campanha inteira. Roteiro, imagem, movimento, som, montagem e as versões de cada peça saem do mesmo pipeline, sem fila de fornecedor. Você aumenta a frequência de publicação sem aumentar a folha, e cada semana devolve criativos prontos pra subir.</p>
+    </div>
+  </div>
+</section>
+
+<section class="porta">
+  <div class="wrap">
+    <div class="painel vidro acende">
+      <h2>Me conta o que<br>você precisa.</h2>
+      <p>Primeira conversa é rápida. Eu pergunto quatro coisas, digo se dá para fazer e quanto custa. Se não der, eu falo na hora.</p>
+      <a class="zap" href="https://wa.me/5511952898354?text=Vi%20seu%20portf%C3%B3lio.%20Quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.4.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/></svg>
+        Chamar no WhatsApp
+      </a>
+      <div class="rodape">
+        <a href="https://www.behance.net/hugoouvidio" target="_blank" rel="noopener">Behance</a>
+        <a href="https://www.instagram.com/hugoouvidio/" target="_blank" rel="noopener">Instagram</a>
+        <span>São Paulo e remoto</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
 <script>
-  // 1.489 é contagem real: soma de QUANTIDADE nas linhas do Hugo na planilha de controle.
-  // Único movimento da página. O número já está escrito no HTML — se o JS não rodar, ele
-  // aparece parado e certo. A animação é enfeite, não é o conteúdo.
-  (function(){
-    var el=document.getElementById('cnt'), alvo=1489;
-    var fmt=function(v){return v.toLocaleString('pt-BR')};
-    if(!el || matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-    var n=0, t=setInterval(function(){
-      n+=Math.max(1,Math.round((alvo-n)/12));
-      if(n>=alvo){n=alvo;clearInterval(t);}
-      el.textContent=fmt(n);
-    },26);
-  })();
+(function(){
+  var calmo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* --- acender ao entrar em quadro --- */
+  var acendiveis = document.querySelectorAll('.acende');
+  if (calmo || !('IntersectionObserver' in window)) {
+    acendiveis.forEach(function(el){ el.classList.add('acesa'); });
+  } else {
+    var luz = new IntersectionObserver(function(ents){
+      ents.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('acesa'); luz.unobserve(e.target); }
+      });
+    }, {rootMargin:'0px 0px -12% 0px', threshold:0.12});
+    acendiveis.forEach(function(el){ luz.observe(el); });
+  }
+
+  /* --- vídeos dos filmes: tocam em quadro, pausam fora --- */
+  var palcos = document.querySelectorAll('.palco');
+  if ('IntersectionObserver' in window) {
+    var olho = new IntersectionObserver(function(ents){
+      ents.forEach(function(e){
+        var v = e.target.querySelector('video');
+        if (!v) return;
+        if (e.isIntersecting && !calmo) {
+          if (v.preload === 'none') v.preload = 'auto';
+          var p = v.play(); if (p && p.catch) p.catch(function(){});
+        } else {
+          v.pause();
+          if (!v.muted) { v.muted = true; e.target.classList.remove('ligado'); }
+        }
+      });
+    }, {threshold:0.35});
+    palcos.forEach(function(p){ olho.observe(p); });
+  }
+
+  /* --- clicar liga o som, e cala os outros --- */
+  palcos.forEach(function(palco){
+    palco.addEventListener('click', function(){
+      var v = palco.querySelector('video');
+      if (!v) return;
+      var ligando = v.muted;
+      palcos.forEach(function(o){
+        var ov = o.querySelector('video');
+        if (ov && ov !== v) { ov.muted = true; o.classList.remove('ligado'); }
+      });
+      v.muted = !ligando;
+      palco.classList.toggle('ligado', ligando);
+      var p = v.play(); if (p && p.catch) p.catch(function(){});
+    });
+  });
+
+  /* --- o véu escurece o ambiente conforme rola ---
+     No herói o showreel aparece quase inteiro (véu .32). Depois de uma tela,
+     .72: o vídeo continua vivo atrás dos painéis, mas vira ambiente, não
+     protagonista. Uma leitura por quadro via rAF, escrita só em opacity. */
+  var veu = document.getElementById('veu');
+  var fio = document.getElementById('fio');
+  var tique = false;
+  var mede = function(){
+    var d = document.documentElement;
+    var rolavel = d.scrollHeight - d.clientHeight;
+    var p = rolavel > 0 ? d.scrollTop / rolavel : 0;
+    if (fio) fio.style.transform = 'scaleX(' + (p < 0 ? 0 : p > 1 ? 1 : p) + ')';
+    if (veu) {
+      var h = window.innerHeight || 1;
+      var t = Math.min(d.scrollTop / h, 1);          /* 0 no topo, 1 após uma tela */
+      veu.style.opacity = (0.32 + t * 0.46).toFixed(3);
+    }
+    tique = false;
+  };
+  addEventListener('scroll', function(){
+    if (!tique) { tique = true; requestAnimationFrame(mede); }
+  }, {passive:true});
+  addEventListener('resize', mede, {passive:true});
+  mede();
+
+  /* --- ambiente pausa quando a aba some: bateria --- */
+  var fundo = document.querySelector('.ambiente video');
+  if (fundo) {
+    document.addEventListener('visibilitychange', function(){
+      if (document.hidden) fundo.pause();
+      else if (!calmo) { var p = fundo.play(); if (p && p.catch) p.catch(function(){}); }
+    });
+    if (calmo) fundo.pause();
+  }
+
+  /* --- dock: acende o destino atual --- */
+  var alvos = ['filmes','mundos','volume'];
+  var links = {};
+  document.querySelectorAll('.dock a[data-alvo]').forEach(function(a){ links[a.dataset.alvo] = a; });
+  if ('IntersectionObserver' in window) {
+    var guia = new IntersectionObserver(function(ents){
+      ents.forEach(function(e){
+        var l = links[e.target.id];
+        if (l) l.classList.toggle('viva', e.isIntersecting);
+      });
+    }, {rootMargin:'-40% 0px -40% 0px'});
+    alvos.forEach(function(id){
+      var s = document.getElementById(id);
+      if (s) guia.observe(s);
+    });
+  }
+})();
 </script>
 </body>
 </html>
