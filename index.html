@@ -216,6 +216,111 @@
   .tag.cinza{border-color:var(--edge); color:var(--mute);
              text-transform:none; letter-spacing:.04em}
 
+  /* ---------- com marca: dois verticais lado a lado ----------
+     Os dois filmes de cliente são 9:16. Um vertical sozinho nesta página
+     ocupa a tela inteira e empurra tudo que vem depois pra baixo da dobra —
+     numa página de tráfego frio isso é caro. Lado a lado eles também se leem
+     como UM PAR, que é o argumento inteiro da seção: a mesma operação entrega
+     hardware gamer alemão e loja de carro.
+     Aqui a ficha NÃO flutua sobre o palco como nos filmes autorais: em coluna
+     estreita ela cobriria o vídeo. Vira bloco embaixo.
+     Abaixo de 820 px empilha, porque dois verticais lado a lado num celular
+     dão ~160 px de largura cada e nenhum rosto sobrevive a isso.
+
+     A LARGURA É MEDIDA, NÃO CHUTADA: no `wrap` inteiro (1680 px) cada vertical
+     ficava 750×1332 — 139% da altura da janela, ou seja, nem UM cabia na tela.
+     O filme 16:9 desta mesma página tem 865 px de altura. 865 × 9/16 = 487 de
+     largura; 487 × 2 + o gap dá ~1040. Por isso o teto é 1040: é o número que
+     faz o vertical ter a MESMA altura do filme de cima. */
+  .duo{display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2.6vw,36px);
+       align-items:start; max-width:1040px; margin-inline:auto}
+  @media (max-width:820px){.duo{grid-template-columns:1fr; gap:clamp(44px,8vh,80px); max-width:520px}}
+  /* o rótulo desce pro mesmo trilho de 1040, senão o título começa num x
+     e os vídeos em outro, e a seção inteira parece desalinhada. */
+  #marcas .rotulo{max-width:1040px; margin-inline:auto}
+  .duo .filme{margin-bottom:0}
+  .duo .ficha, .duo .filme:nth-child(odd) .ficha{
+    width:auto; margin:14px 0 0; padding:clamp(16px,2vw,24px);
+  }
+  .marca{
+    font-family:var(--mono); font-size:11px; font-weight:600;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--green);
+    display:block; margin-bottom:6px;
+  }
+
+  /* ---------- como é feito: as etapas, o gate e o argumento ----------
+     Esta seção existe porque a página mostrava o resultado e nunca o trabalho.
+     Marca pequena — loja de carro, marca de periférico — olha um filme de IA e
+     não sabe o que está comprando: acha que é prompt e sorte. Enquanto ele acha
+     isso, o preço dele de referência é o do primo que edita, e não tem copy que
+     conserte. O que conserta é mostrar as etapas.
+
+     CINCO cartões e não sete. As pastas reais do projeto são oito (00 a 07), mas
+     duas só existem num dos dois filmes (mascote e trilha) e uma é avulsa. Etapa
+     que não acontece sempre não pode virar promessa na página principal.
+
+     `.et` usa flex-column com `margin-top:auto` no rodapé pra linha "você aprova"
+     ficar colada embaixo nos três, mesmo com textos de altura diferente — senão o
+     grid vira escada e o olho não compara os cartões.
+
+     Nada aqui carrega byte: é texto. A página principal tem orçamento de 3s e
+     tráfego frio, então seção nova só entra se for barata. Esta é.
+
+     ERAM CINCO CARTÕES ATÉ 29/09/2026, e viraram três por decisão do Hugo: os
+     cinco descreviam o método dele por dentro (dossiê de recortes, folha do
+     produto, quadro de aprovação). Método por dentro é o ativo — não se entrega
+     de bandeja na página de vendas. Três descrevem o que o CLIENTE faz: aprova o
+     roteiro, aprova a identidade visual, recebe o filme. */
+  .etapas{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(12px,1.3vw,18px)}
+  @media (max-width:860px){.etapas{grid-template-columns:1fr}}
+  .et{padding:clamp(20px,2.3vw,30px); display:flex; flex-direction:column; gap:9px}
+  .et > i{font-style:normal; font-family:var(--mono); font-size:10px; font-weight:600;
+          letter-spacing:.14em; text-transform:uppercase; color:var(--green)}
+  .et > b{font-size:17px; font-weight:700; letter-spacing:-.022em; line-height:1.15}
+  .et > p{font-size:14px; line-height:1.55; color:var(--ink2)}
+  .et > u{margin-top:auto; padding-top:13px; text-decoration:none;
+          border-top:1px solid var(--edge);
+          font-family:var(--mono); font-size:11px; line-height:1.55; color:var(--mute)}
+  .et > u em{font-style:normal; display:block; margin-bottom:3px;
+             font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--green)}
+
+  /* o gate: um painel largo só, porque é UMA história e história não se quebra
+     em cartão. É a prova mais forte que o projeto tem — o erro pego uma etapa
+     antes de virar caro — e ela só funciona contada inteira. */
+  .gate{margin-top:clamp(20px,2.6vw,34px); padding:clamp(24px,3.2vw,42px)}
+  .gate h4{font-family:var(--mono); font-size:12px; font-weight:500;
+           letter-spacing:.09em; text-transform:uppercase; color:var(--mute);
+           padding-bottom:14px; border-bottom:1px solid var(--edge)}
+  /* DUAS COLUNAS, e a razão é medida: com os dois parágrafos empilhados o texto
+     morria em x=730 num painel de 1410 — metade do vidro vazia. Esticar a medida
+     de leitura resolveria o buraco e estragaria a leitura (linha boa tem 65–75
+     caracteres, não 120). Duas colunas preenchem o painel mantendo a medida.
+
+     `.corpo` NASCEU DENTRO DO `.gate` E VIROU UTILITÁRIO em 29/09/2026, porque o
+     mesmo buraco reapareceu em dois painéis novos do "O volume": texto morrendo em
+     x=768 num painel de 1536. É a mesma lei, então é a mesma regra — e regra
+     repetida em três lugares é três lugares pra esquecer de mudar. */
+  .corpo{display:grid; grid-template-columns:1fr 1fr; gap:clamp(20px,3vw,48px);
+         margin-top:16px}
+  @media (max-width:900px){.corpo{grid-template-columns:1fr; gap:14px}}
+  /* dentro do `.corpo` o parágrafo não carrega filete nem respiro próprio: quem
+     separa são as colunas. Sem isto, o `.curva > p` da seção de volume entrava com
+     border-top e desenhava um risco no meio da coluna da direita. */
+  .corpo > p{margin-top:0; padding-top:0; border-top:0}
+  .gate p{font-size:16px; line-height:1.6; color:var(--ink2)}
+  .gate p b{color:var(--ink); font-weight:700}
+
+  /* os porquês: cartão curto e SEM numeral gigante, de propósito. A seção
+     "O volume" já tem `.numeros` com número grande; se este bloco repetisse o
+     formato, a página pareceria dizer a mesma coisa duas vezes. Lá o argumento
+     é de operação (frequência); aqui é de peça (o produto certo). */
+  .porques{margin-top:clamp(20px,2.6vw,34px);
+           display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(12px,1.3vw,18px)}
+  @media (max-width:860px){.porques{grid-template-columns:1fr}}
+  .pq{padding:clamp(20px,2.3vw,30px)}
+  .pq b{display:block; font-size:16px; font-weight:700; letter-spacing:-.022em; line-height:1.2}
+  .pq p{margin-top:9px; font-size:14px; line-height:1.55; color:var(--ink2)}
+
   /* ---------- dentro do trabalho: as imagens da série B ---------- */
   .mundos{display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(14px,1.8vw,26px)}
   .mundo{position:relative; border-radius:var(--r); overflow:hidden;
@@ -290,8 +395,69 @@
             font-size:12px; font-weight:600; font-variant-numeric:tabular-nums; color:var(--ink)}
   .barras s{text-decoration:none; font-family:var(--mono); font-size:10px;
             letter-spacing:.09em; text-transform:uppercase; color:var(--mute)}
+  /* a TIPOGRAFIA é do descendente (`.curva p`), o ESPAÇO é do filho direto
+     (`.curva > p`). A separação não é estética: desde que os parágrafos passaram a
+     viver dentro de um `.corpo`, eles deixaram de ser filhos diretos — se o
+     tamanho de fonte estivesse preso ao `>`, o painel inteiro cairia pro corpo
+     padrão do navegador sem avisar. */
+  .curva p{font-size:16px; line-height:1.6; color:var(--ink2)}
+  .curva p b{color:var(--ink); font-weight:700}
   .curva > p{margin-top:18px; padding-top:16px; border-top:1px solid var(--edge);
-             font-size:16px; color:var(--ink2); max-width:78ch}
+             max-width:78ch}
+  /* o primeiro parágrafo perde o filete: o h4 logo acima já tem border-bottom, e as
+     duas linhas juntas viravam um risco duplo. */
+  .curva > p:first-of-type{border-top:0; padding-top:0}
+  .curva > .corpo{margin-top:16px}
+
+  /* ---------- a escala de pontos: o volume vira número ----------
+     Pedido do Hugo em 29/09/2026: "a parte de volume, precisamos metrificar melhor
+     pro lead, tipo, consigo te entregar em performance quantos videos sua marca
+     precisar para escalar de acordo com cada contrato (discutido via fechamento)".
+
+     A seção argumentava volume sem NUNCA dizer um número. O lead saía sabendo que
+     volume importa e sem a menor ideia do que recebe — e quem não tem unidade de
+     medida volta pra única que conhece: preço por vídeo. Que é exatamente a régua
+     em que este trabalho perde pra qualquer editor de R$200.
+
+     A unidade é o PONTO, e ela não foi inventada aqui: está fechada em
+     contexto/oferta.md desde 17/08/2026, e a página noindex propostas/Pacotes já
+     ensina a mesma escala COM preço. Aqui ela entra SEM preço, de propósito — o
+     oferta.md é explícito: "preço sem escopo vira leilão". A página ensina a régua;
+     o número sai no WhatsApp, com escopo.
+
+     POR QUE NÃO ENTRA NUMERO DA PLANILHA AQUI. 370 entregas, 1.489 arquivos e a
+     curva 60→391 saem do controle de produção do Rodrigo Freire, e é justamente o
+     que mantém /portfolio fora do ar. A escala de pontos é decisão comercial do
+     Hugo, não dado de terceiro — por isso ela pode ir pro ar na página que já está
+     no ar, e a planilha não. */
+  .escala{margin-top:clamp(24px,3.2vw,42px); padding:clamp(24px,3.2vw,42px)}
+  .escala h4{font-family:var(--mono); font-size:12px; font-weight:500;
+             letter-spacing:.09em; text-transform:uppercase; color:var(--mute);
+             padding-bottom:14px; border-bottom:1px solid var(--edge)}
+  .escala > .abre{margin-top:16px; font-size:16px; line-height:1.6; color:var(--ink2); max-width:78ch}
+  .escala > .abre b{color:var(--ink); font-weight:700}
+  .niveis{display:grid; grid-template-columns:repeat(3,1fr);
+          gap:clamp(16px,2.4vw,40px); margin-top:clamp(20px,2.6vw,32px)}
+  @media (max-width:760px){.niveis{grid-template-columns:1fr; gap:22px}}
+  /* o numeral é grande porque ELE é a informação: a distância entre 1 e 6 é a coisa
+     toda. Quem lê "1, 2, 6" entende em um segundo que peça autoral não é seis vezes
+     mais cara por capricho — é seis vezes mais trabalho. */
+  .nv > b{display:block; font-size:clamp(36px,4.6vw,58px); font-weight:800;
+          line-height:.92; letter-spacing:-.04em; color:var(--green);
+          font-variant-numeric:tabular-nums}
+  .nv > i{font-style:normal; display:block; margin-top:7px; font-family:var(--mono);
+          font-size:10px; font-weight:600; letter-spacing:.14em;
+          text-transform:uppercase; color:var(--mute)}
+  .nv > strong{display:block; margin-top:12px; font-size:18px; font-weight:700;
+               letter-spacing:-.022em; line-height:1.15}
+  .nv > p{margin-top:7px; font-size:14px; line-height:1.55; color:var(--ink2)}
+  /* o fecho é `.fecha.corpo`: o filete e o respiro vêm daqui, as duas colunas vêm
+     do utilitário. SEM max-width aqui — ela estrangularia o grid inteiro, e a
+     medida de leitura já é garantida por cada coluna ter metade do painel. */
+  .escala > .fecha{margin-top:clamp(20px,2.6vw,30px); padding-top:16px;
+                   border-top:1px solid var(--edge)}
+  .escala > .fecha p{font-size:15px; line-height:1.6; color:var(--ink2)}
+  .escala > .fecha b{color:var(--ink); font-weight:700}
 
   /* ---------- porta: uma janela só, centrada, flutuando ---------- */
   .porta{padding:clamp(80px,16vh,220px) 0 clamp(120px,16vh,180px)}
@@ -334,6 +500,18 @@
     .cartao img{aspect-ratio:4/5; object-fit:cover}
     .cartao::after{opacity:1; transform:none}
     .numeros{grid-template-columns:1fr}
+    /* A ESTEIRA DAS ETAPAS SAIU em 29/09/2026, junto com os dois cartões que
+       viraram três. Ela existia por medida: empilhados, os CINCO cartões davam
+       1.422 px e a seção inteira 2.879 px num celular de 360 — 3,9x a tela, uma
+       parede. Processo que vira parede não é lido, é rolado.
+
+       MEDIDO DE NOVO com três cartões, num iPhone de 390: a pilha dá 778 px e a
+       seção inteira 2.157 — dentro do pelotão das outras (campanhas 767, mundos
+       1.258, filmes 1.735, processo 2.157, marcas 2.269, volume 2.657), e não
+       mais o dobro da maior. Não há mais parede pra esteira resolver, e sem
+       parede a esteira só esconde dois terços do processo atrás de um gesto que
+       ninguém garante que o visitante vai fazer. Empilhado, ele vê as três
+       rolando. O portfólio perdeu a dele no mesmo dia, pela mesma conta. */
     .ficha{width:auto; margin:-24px 10px 0 10px !important}
     .filme{margin-bottom:clamp(48px,8vh,80px)}
   }
@@ -383,11 +561,11 @@
 <section class="heroi" id="topo">
   <div class="wrap">
     <h1>Eu faço o<br>filme <em>inteiro</em><br>sozinho.</h1>
-    <p class="sub">Roteiro, imagem, movimento, som e montagem. Tudo com inteligência artificial, do zero, sem equipe e sem locação. <b>Abaixo tocam três filmes completos.</b> Depois deles, as campanhas que já foram ao ar.</p>
+    <p class="sub">Roteiro, imagem, movimento, som e montagem. Tudo com inteligência artificial, do zero, sem equipe e sem locação. <b>Abaixo tocam três filmes completos e duas peças feitas para marca.</b> Depois deles, as campanhas que já foram ao ar.</p>
     <div class="tira vidro">
       <span class="dado"><b>03</b> filmes completos</span>
       <span class="dado"><b>11</b> campanhas no ar</span>
-      <span class="dado"><b>09</b> marcas atendidas</span>
+      <span class="dado">de <b>fast-food</b> a <b>clube europeu</b></span>
     </div>
   </div>
 </section>
@@ -435,6 +613,102 @@
         <div class="meta"><span class="tag">autoral</span><span class="tag cinza">15 s · narrado</span></div>
       </div>
     </article>
+  </div>
+</section>
+
+<section class="secao" id="marcas">
+  <div class="wrap">
+    <div class="rotulo acende">
+      <h2>Com marca</h2>
+      <i class="vidro">feitos para cliente</i>
+      <p>Os três de cima são meus. Estes dois têm dono: entraram com briefing, produto e logotipo de marca, e saíram do mesmo pipeline de uma pessoa só. É o mesmo processo — muda quem manda.</p>
+    </div>
+
+    <div class="duo acende">
+      <article class="filme">
+        <div class="palco" data-som>
+          <video src="portfolio/video/cougar.mp4" poster="portfolio/poster/cougar.jpg" muted loop playsinline preload="none"></video>
+          <span class="som"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4zm13.5 3a4.5 4.5 0 00-2.5-4v8a4.5 4.5 0 002.5-4z"/></svg> som</span>
+        </div>
+        <div class="ficha vidro">
+          <span class="marca">COUGAR</span>
+          <h3>Armor Titan Pro Royal</h3>
+          <p>Parceria de anos com a marca alemã de hardware, periféricos e acessórios para PC gamer, com collab publicada no Instagram. A pantera do logotipo desce do meu ombro e vira a cadeira, peça por peça, na ordem em que o fabricante monta.</p>
+          <div class="meta"><span class="tag">com marca</span><span class="tag cinza">21 s · 9:16</span></div>
+        </div>
+      </article>
+
+      <article class="filme">
+        <div class="palco" data-som>
+          <video src="portfolio/video/big911.mp4" poster="portfolio/poster/big911.jpg" muted loop playsinline preload="none"></video>
+          <span class="som"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4zm13.5 3a4.5 4.5 0 00-2.5-4v8a4.5 4.5 0 002.5-4z"/></svg> som</span>
+        </div>
+        <div class="ficha vidro">
+          <span class="marca">BIGFORYOU</span>
+          <h3>Porsche 911</h3>
+          <p>Para a loja de carros do Big. O 911 nasce em wireframe no meio da rua e fecha em carro acabado — com o brasão, a roda e o freio na geometria da geração certa, que é onde esse tipo de peça normalmente entrega errado.</p>
+          <div class="meta"><span class="tag">com marca</span><span class="tag cinza">29 s · 9:16</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="secao" id="processo">
+  <div class="wrap">
+    <div class="rotulo acende">
+      <h2>Como é feito</h2>
+      <i class="vidro">do briefing à entrega</i>
+      <p>Os dois filmes acima não saíram de um pedido bem escrito. Saíram de três etapas — e <b>duas delas terminam numa aprovação sua</b>, as duas antes de existir um segundo de vídeo.</p>
+    </div>
+
+    <div class="etapas acende">
+
+      <div class="et vidro">
+        <i>Etapa 01</i>
+        <b>O roteiro</b>
+        <p>Primeiro a gente acerta o que o filme conta: a ideia, o que aparece, em que ordem, quanto dura e como termina. Escrito, curto, sem termo técnico.</p>
+        <u><em>você aprova</em> antes de qualquer imagem existir. Mudar uma frase aqui custa uma frase.</u>
+      </div>
+
+      <div class="et vidro">
+        <i>Etapa 02</i>
+        <b>A identidade visual</b>
+        <p>Com o roteiro de pé, eu monto como o filme vai parecer: o seu produto, a sua cor, a sua luz. Você vê isso em imagem parada, não em descrição.</p>
+        <u><em>você aprova</em> olhando, não imaginando. É aqui que se diz “esse não é o meu produto”.</u>
+      </div>
+
+      <div class="et vidro">
+        <i>Etapa 03</i>
+        <b>A execução</b>
+        <p>Com roteiro e identidade aprovados, o filme é feito: movimento, som, montagem e acabamento. Você recebe a peça principal e as variações.</p>
+        <u><em>você recebe</em> no prazo combinado, já no formato onde a sua marca publica.</u>
+      </div>
+
+    </div>
+
+    <div class="gate vidro acende">
+      <h4>Por que as duas aprovações vêm antes</h4>
+      <div class="corpo">
+      <p>No filme do 911, a pinça de freio saiu na cor errada para aquela geração de carro. <b>O erro apareceu na identidade visual, uma etapa antes do filme.</b> Foi corrigido ali, numa imagem parada. Se tivesse passado, o conserto não seria uma imagem — seria o filme inteiro de novo, e filme refeito volta diferente.</p>
+      <p>É exatamente para isso que as aprovações existem, e é por isso que elas vêm antes. Cada uma é um lugar de dizer “não é isso” enquanto dizer isso ainda custa uma imagem. <b>Não é prompt e sorte. É conferência.</b></p>
+      </div>
+    </div>
+
+    <div class="porques acende">
+      <div class="pq vidro">
+        <b>Seu produto, e não um parecido com ele</b>
+        <p>O modelo certo, a peça certa, o detalhe certo. Quem está quase comprando é justamente quem mais conhece o produto — e é quem percebe na hora quando ele está errado.</p>
+      </div>
+      <div class="pq vidro">
+        <b>Nasce no formato onde você vende</b>
+        <p>Vertical, com som, no tempo de quem rola o feed. Não é filme de TV recortado para caber no celular depois.</p>
+      </div>
+      <div class="pq vidro">
+        <b>A segunda peça começa adiantada</b>
+        <p>O que a sua marca aprovou não é descarte: fica guardado. A próxima peça não recomeça do zero, começa do que já passou por você.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -533,8 +807,8 @@
   <div class="wrap">
     <div class="rotulo acende">
       <h2>O volume</h2>
-      <i class="vidro">por que marca não escala</i>
-      <p>Filme bonito toda marca consegue fazer uma vez. O jogo de verdade é o de toda semana: criativo novo no ar antes do anterior cansar.</p>
+      <i class="vidro">quanto dá por mês</i>
+      <p>Filme bonito toda marca consegue fazer uma vez. O jogo de verdade é o de toda semana — e pra isso volume precisa ser número, não promessa.</p>
     </div>
 
     <div class="numeros acende">
@@ -543,9 +817,45 @@
       <div class="n vidro"><b>A saída</b><p>Com IA, uma ideia aprovada vira uma família de criativos: variações de gancho, formato e duração pra testar no tráfego. Volume de agência, operação de uma pessoa.</p></div>
     </div>
 
+    
+    <div class="escala vidro acende">
+      <h4>A régua · o que você contrata é cota, não vídeo</h4>
+      <p class="abre"><b>1 ponto = 1 vídeo simples, pronto pra publicar.</b> Peça mais complexa custa mais pontos, porque leva mais tempo. É a única conta que existe aqui — e ela cabe em três linhas.</p>
+
+      <div class="niveis">
+        <div class="nv">
+          <b>1</b>
+          <i>ponto · até 90s</i>
+          <strong>Corte</strong>
+          <p>O material já existe. Corte, ritmo, legenda animada, trilha e tratamento de cor. Corte de live, de aula, de podcast.</p>
+        </div>
+        <div class="nv">
+          <b>2</b>
+          <i>pontos · até 60s</i>
+          <strong>Criativo</strong>
+          <p>O material existe, mas a peça é construída: gancho novo nos 3 primeiros segundos, motion na tela, gráficos, locução, cor autoral.</p>
+        </div>
+        <div class="nv">
+          <b>6</b>
+          <i>pontos · até 45s</i>
+          <strong>Peça autoral</strong>
+          <p>Não existe material. A imagem nasce do zero, como os dois filmes de marca lá em cima. É o caminho completo, do roteiro à entrega.</p>
+        </div>
+      </div>
+
+      <div class="fecha corpo">
+        <p>Cada peça sai com a principal <b>mais até 4 variações</b> — outro formato (9:16, 4:5, 1:1, 16:9), outro gancho, outro corte, outra legenda. Na prática <b>uma entrega vira até 5 arquivos</b>, e é isso que faz a cota render.</p>
+        <p>O nível de cada peça é definido no briefing, <b>antes de começar</b>, e vai escrito no combinado. Se o brief mudar no meio e a peça subir de nível, você é avisado antes — nunca vira surpresa depois.</p>
+      </div>
+    </div>
+
+    
     <div class="curva vidro acende">
-      <h4>Como funciona · estilo agência</h4>
-      <p>Entra o briefing, sai a campanha inteira. Roteiro, imagem, movimento, som, montagem e as versões de cada peça saem do mesmo pipeline, sem fila de fornecedor. Você aumenta a frequência de publicação sem aumentar a folha, e cada semana devolve criativos prontos pra subir.</p>
+      <h4>Quantos pontos são os seus</h4>
+      <div class="corpo">
+        <p>O tamanho da cota se define no fechamento, pelo volume que você precisa publicar e pelo tipo de peça. A mesma cota serve marcas diferentes: uma escola gasta tudo em corte de aula, uma casa de aposta gasta em criativo pra testar território, e uma marca com campanha troca parte dela por uma peça autoral. <b>Você monta o mês, eu entrego o mês.</b></p>
+        <p><b>E tem teto — de propósito.</b> Trabalho com um número fixo de vagas de contrato, então a cota que eu fecho é a que eu cumpro, não a que soa bem na reunião. Volume sem teto é promessa; volume com teto é contrato. É por isso que o número sai numa conversa de cinco minutos, e não de um botão.</p>
+      </div>
     </div>
   </div>
 </section>
