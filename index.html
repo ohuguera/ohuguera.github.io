@@ -211,6 +211,14 @@
     display:block; margin-bottom:6px;
   }
 
+
+  #canal .rotulo, #canal .tira-canal{max-width:1040px; margin-inline:auto}
+  .tira-canal{display:flex; margin-bottom:clamp(22px,3vh,34px)}
+  .capas-kng{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(10px,1.2vw,16px); max-width:1040px; margin:clamp(36px,6vh,64px) auto 0}
+  .capas-kng img{width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--edge)}
+  .capas-kng figcaption{grid-column:1/-1; font-size:13px; color:var(--mute); margin-top:4px}
+  @media (max-width:820px){.capas-kng{grid-template-columns:1fr 1fr}}
+
   .etapas{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(12px,1.3vw,18px)}
   @media (max-width:860px){.etapas{grid-template-columns:1fr}}
   .et{padding:clamp(20px,2.3vw,30px); display:flex; flex-direction:column; gap:9px}
@@ -584,6 +592,71 @@
         <p>O que a sua marca aprovou não é descarte: fica guardado. A próxima peça não recomeça do zero, começa do que já passou por você.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="secao" id="canal">
+  <div class="wrap">
+    <div class="rotulo acende">
+      <h2>Dezesseis horas viraram uma semana</h2>
+      <i class="vidro">canal no ar · feito para cliente</i>
+      <p>O kNg foi o AWPer da Immortals vice-campeã do Major de 2017. Hoje é streamer, e o YouTube dele passa por aqui. Daquele Major sobraram dezesseis horas de transmissão e as demos oficiais das partidas. A máquina achou cada kill dele, no segundo exato, e montou a série inteira. Ninguém precisou assistir as dezesseis horas.</p>
+    </div>
+
+    <div class="tira-canal acende"><div class="tira vidro">
+      <span class="dado"><b>16 h</b> de transmissão</span>
+      <span class="dado"><b>200</b> kills mapeadas</span>
+      <span class="dado"><b>5</b> vídeos + <b>21</b> Shorts</span>
+    </div></div>
+
+    <article class="filme acende">
+      <div class="palco" data-som>
+        <video src="portfolio/video/kng-awp.mp4" poster="portfolio/poster/kng-awp.jpg" muted loop playsinline preload="none"></video>
+        <span class="som"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4zm13.5 3a4.5 4.5 0 00-2.5-4v8a4.5 4.5 0 002.5-4z"/></svg> som</span>
+      </div>
+      <div class="ficha vidro">
+        <span class="marca">kNg · Vilão</span>
+        <h3>Só AWP no Major</h3>
+        <p>Montagem em modo edit: só entra kill na câmera dele, e o impacto cai no quadro exato do tiro, achado pela imagem e não no olho. A narração original da transmissão fica de fundo.</p>
+        <div class="meta"><span class="tag">canal</span><span class="tag cinza">YouTube · 16:9</span></div>
+      </div>
+    </article>
+
+    <div class="duo acende">
+      <article class="filme">
+        <div class="palco" data-som>
+          <video src="portfolio/video/kng-4-de-awp-na-final.mp4" poster="portfolio/poster/kng-4-de-awp-na-final.jpg" muted loop playsinline preload="none"></video>
+          <span class="som"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4zm13.5 3a4.5 4.5 0 00-2.5-4v8a4.5 4.5 0 002.5-4z"/></svg> som</span>
+        </div>
+        <div class="ficha vidro">
+          <h3>4 de AWP na final do Major</h3>
+          <p>Short da mesma série: gancho no topo, killfeed ampliado e a câmera dele de 2017 no canto. Fecha chamando para a comunidade.</p>
+          <div class="meta"><span class="tag">canal</span><span class="tag cinza">Shorts · 9:16</span></div>
+        </div>
+      </article>
+
+      <article class="filme">
+        <div class="palco" data-som>
+          <video src="portfolio/video/kng-duas-vezes-no-s1mple.mp4" poster="portfolio/poster/kng-duas-vezes-no-s1mple.jpg" muted loop playsinline preload="none"></video>
+          <span class="som"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4zm13.5 3a4.5 4.5 0 00-2.5-4v8a4.5 4.5 0 002.5-4z"/></svg> som</span>
+        </div>
+        <div class="ficha vidro">
+          <h3>Matou o s1mple duas vezes</h3>
+          <p>Dois lances de mapas diferentes, achados pela demo da partida e juntados num corte só. Vinte e um desses, uma semana inteira, saíram do mesmo material.</p>
+          <div class="meta"><span class="tag">canal</span><span class="tag cinza">Shorts · 9:16</span></div>
+        </div>
+      </article>
+    </div>
+
+    <figure class="capas-kng acende">
+      <img src="portfolio/kng/major-5-caminho-A.jpg" alt="Capa: kNg e s1mple como gângsteres dos anos 1920" loading="lazy" width="960" height="540">
+      <img src="portfolio/kng/major-2-final.jpg" alt="Capa: a final do Major" loading="lazy" width="960" height="540">
+      <img src="portfolio/kng/major-3-awp.jpg" alt="Capa: o AWPer mirando" loading="lazy" width="960" height="540">
+      <img src="portfolio/kng/major-4-quartas.jpg" alt="Capa: quartas contra a BIG" loading="lazy" width="960" height="540">
+      <img src="portfolio/kng/major-1-piloto.jpg" alt="Capa: quase campeão do mundo" loading="lazy" width="960" height="540">
+      <img src="portfolio/kng/capa7-11x11-paqueta.jpg" alt="Capa: kNg e convidado na mesma cena" loading="lazy" width="960" height="540">
+      <figcaption>As capas: o streamer vira personagem, com pose nova a cada vídeo. Quando joga com alguém conhecido, o convidado entra na mesma cena.</figcaption>
+    </figure>
   </div>
 </section>
 
