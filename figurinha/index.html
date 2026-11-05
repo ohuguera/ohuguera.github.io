@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Como fiz o vídeo da figurinha, clique por clique | Mini aula</title>
+<meta name="description" content="Mini aula gravada na tela, das 2 fotos até o Reel pronto. R$ 27,99.">
+<meta property="og:title" content="Como fiz o vídeo da figurinha, clique por clique">
+<meta property="og:description" content="Mini aula gravada na tela, das 2 fotos até o Reel pronto. R$ 27,99.">
+<meta property="og:image" content="https://ohuguera.com.br/figurinha/capa.jpg">
+<meta name="theme-color" content="#050B16">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!--
+  Sistema da página (identidade aprovada em 05/11/2026, contexto/identidade.md):
+  Cores: noite #050B16, abismo #0A1F3D, azul #17406F, bebê #8FCBFA, cristal #D9F1FF, gelo #F2FAFF.
+  Tipo: Ubuntu Sans. Título 800 em caixa alta com degradê cristal; corpo 400-500; mínimo 17px no celular.
+  Ritmo: coluna única, 16px de margem no celular, seções separadas por filete fino, um único botão repetido.
+  LINK DE COMPRA: trocar o valor de data-checkout no <body> quando o produto existir.
+-->
+<style>
+  :root { --noite:#050B16; --abismo:#0A1F3D; --azul:#17406F; --bebe:#8FCBFA; --cristal:#D9F1FF; --gelo:#F2FAFF; --filete:rgba(190,232,255,.2); }
+  * { box-sizing:border-box; margin:0 }
+  html { -webkit-text-size-adjust:100% }
+  body { font-family:'Ubuntu Sans',sans-serif; color:var(--gelo); font-size:18px; line-height:1.5; padding-bottom:96px;
+    background:radial-gradient(900px 620px at 50% -60px,#17406f 0%,#0a1f3d 48%,transparent 100%),var(--noite); background-repeat:no-repeat }
+  .wrap { width:100%; max-width:760px; margin:0 auto; padding:0 18px }
+  .olho { font-size:14px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--bebe) }
+  .brilho { font-weight:800; letter-spacing:-.03em; text-transform:uppercase; line-height:1.02;
+    background:linear-gradient(180deg,#fff 8%,#d9f1ff 45%,#8fcbfa 72%,#eaf8ff 100%); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 22px rgba(130,205,255,.35)) }
+  header { padding:34px 0 22px; text-align:center }
+  h1 { font-size:clamp(38px,9.6vw,68px); margin:12px 0 14px; text-wrap:balance }
+  .sub { font-size:clamp(18px,4.6vw,22px); color:var(--cristal); max-width:600px; margin:0 auto; text-wrap:pretty }
+  .tela { position:relative; border-radius:18px; overflow:hidden; border:1.5px solid rgba(190,232,255,.55); box-shadow:0 0 54px rgba(120,200,255,.28),0 22px 60px rgba(0,0,0,.6); background:#000; aspect-ratio:16/9 }
+  .tela video { display:block; width:100%; height:100%; object-fit:cover }
+  .som { position:absolute; right:10px; bottom:10px; min-height:44px; padding:0 16px; border-radius:999px; border:1px solid rgba(190,232,255,.7); background:rgba(5,11,22,.82); color:var(--gelo); font:700 15px 'Ubuntu Sans',sans-serif; cursor:pointer }
+  .botao { display:flex; align-items:center; justify-content:center; width:100%; min-height:62px; padding:14px 22px; border-radius:16px; text-align:center; text-decoration:none; font-size:20px; font-weight:800; letter-spacing:-.01em; color:#04121f;
+    background:linear-gradient(180deg,#f4fbff,#a9d9fb); box-shadow:0 0 34px rgba(143,203,250,.55); transition:transform .15s,box-shadow .15s }
+  .botao:hover { transform:translateY(-2px); box-shadow:0 0 46px rgba(143,203,250,.8) }
+  .botao:focus-visible,.som:focus-visible { outline:3px solid #fff; outline-offset:3px }
+  .compra { padding:22px 0 8px; text-align:center }
+  .nota { font-size:15px; color:#BCD7EC; margin-top:10px }
+  section { padding:38px 0; border-top:1px solid var(--filete); margin-top:30px }
+  section + section { margin-top:0 }
+  h2 { font-size:clamp(28px,6.6vw,40px); margin-bottom:20px }
+  .passos { list-style:none; padding:0; counter-reset:p }
+  .passos li { counter-increment:p; display:grid; grid-template-columns:44px 1fr; gap:6px 10px; padding:13px 0; border-bottom:1px solid var(--filete); text-wrap:pretty }
+  .passos li:last-child { border-bottom:0 }
+  .passos li::before { content:counter(p); font-size:26px; font-weight:800; line-height:1.15; color:var(--bebe) }
+  p + p { margin-top:12px }
+  .avisos { list-style:none; padding:0 }
+  .avisos li { padding:12px 0; border-bottom:1px solid var(--filete); color:var(--cristal); text-wrap:pretty }
+  .avisos li:last-child { border-bottom:0 }
+  .fim { text-align:center }
+  .preco { font-size:clamp(58px,15vw,88px); margin:6px 0 18px }
+  footer { padding:26px 0 18px; font-size:14px; color:#9FC4E0; text-align:center; border-top:1px solid var(--filete) }
+  .fixo { position:fixed; left:0; right:0; bottom:0; padding:10px 14px calc(10px + env(safe-area-inset-bottom)); background:linear-gradient(180deg,transparent,rgba(5,11,22,.96) 34%); z-index:5 }
+  .fixo .botao { max-width:724px; margin:0 auto; min-height:56px; font-size:18px }
+  @media (prefers-reduced-motion:reduce) { .botao { transition:none } .botao:hover { transform:none } }
+</style>
+</head>
+<body data-checkout="https://pay.kiwify.com.br/j1XRsIs">
+  <div class="wrap">
+    <header>
+      <div class="olho">Mini aula</div>
+      <h1 class="brilho">Como fiz o vídeo da figurinha, clique por clique.</h1>
+      <p class="sub">Aula de 3 minutos, gravada na tela e narrada com voz de IA, das 2 fotos até o Reel pronto.</p>
+    </header>
+
+    <div class="tela">
+      <video id="v" src="trailer.mp4" poster="capa.jpg" autoplay muted loop playsinline preload="metadata"></video>
+      <button class="som" id="s" type="button">Ligar o som</button>
+    </div>
+
+    <div class="compra">
+      <a class="botao comprar" href="#">Quero a mini aula por R$ 27,99</a>
+      <p class="nota">Acesso imediato · 7 dias para pedir o dinheiro de volta</p>
+    </div>
+
+    <section>
+      <h2 class="brilho">O que você vê na aula</h2>
+      <ol class="passos">
+        <li>Como entrar no Higgsfield do zero e como funcionam os planos e os créditos, para não gastar à toa.</li>
+        <li>Onde fica a trend que usei no Genjutsu.</li>
+        <li>Quais fotos enviar. Usei 2 selfies no espelho.</li>
+        <li>Qual modo escolher, com os dois resultados lado a lado.</li>
+        <li>Os ajustes que usei e onde ver o custo antes de gerar.</li>
+        <li>O que fiz no editor: quadro vertical, copy e música.</li>
+      </ol>
+      <p style="margin-top:16px"><strong>Junto vem um PDF</strong> com um prompt genérico e o texto pronto para adaptar no ChatGPT ou no Claude.</p>
+    </section>
+
+    <section>
+      <h2 class="brilho">Para quem é</h2>
+      <p>Para quem quer fazer o próprio vídeo desse tipo e nunca abriu a ferramenta. Você não precisa saber editar.</p>
+      <p><strong>Você vai precisar de</strong> 2 fotos suas e uma conta no Higgsfield. A plataforma é paga à parte e não está incluída nos R$ 27,99. Cada vídeo gasta créditos conforme o que você quer produzir, e a aula mostra onde ver o valor antes de gerar.</p>
+    </section>
+
+    <section>
+      <h2 class="brilho">Quem ensina</h2>
+      <p>Sou Hugo Ouvidio, o @ohuguera. Trabalho com vídeo e IA, e esse Reel, com mais de 250 mil views em 05/11/2026, é o exemplo da aula.</p>
+    </section>
+
+    <section>
+      <h2 class="brilho">Antes de comprar</h2>
+      <ul class="avisos">
+        <li>A aula mostra como o vídeo foi feito. Ela não garante views nem vendas.</li>
+        <li>Meu vídeo saiu sem prompt. O prompt do PDF é um modelo genérico que escrevi depois, ainda não testado, para você adaptar.</li>
+        <li>A cena com a arma é ficção gerada por IA. A aula não ensina nada sobre arma de verdade. Não use para ameaçar ninguém.</li>
+        <li>Sem relação com clube, jogadores ou com a Higgsfield.</li>
+      </ul>
+    </section>
+
+    <section class="fim">
+      <div class="olho">Mini aula + PDF</div>
+      <div class="brilho preco">R$ 27,99</div>
+      <a class="botao comprar" href="#">Quero a mini aula por R$ 27,99</a>
+      <p class="nota">Acesso imediato · 7 dias para pedir o dinheiro de volta</p>
+    </section>
+
+    <footer>Hugo Ouvidio · @ohuguera<br>Música do vídeo: "Interloper" e "Crypto", Kevin MacLeod (incompetech.com). Licença Creative Commons: By Attribution.</footer>
+  </div>
+
+  <div class="fixo" id="fixo"><a class="botao comprar" href="#">Quero por R$ 27,99</a></div>
+
+<script>
+  var link = document.body.getAttribute('data-checkout');
+  document.querySelectorAll('.comprar').forEach(function (a) { a.href = link; });
+  var v = document.getElementById('v'), s = document.getElementById('s');
+  s.addEventListener('click', function () {
+    v.muted = !v.muted;
+    if (!v.muted) { v.currentTime = 0; v.play(); }
+    s.textContent = v.muted ? 'Ligar o som' : 'Desligar o som';
+  });
+  // A barra fixa some quando o botão principal está na tela, para não repetir.
+  var fixo = document.getElementById('fixo');
+  if ('IntersectionObserver' in window) {
+    var visiveis = new Set();
+    var o = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.isIntersecting ? visiveis.add(e.target) : visiveis.delete(e.target); });
+      fixo.style.display = visiveis.size ? 'none' : '';
+    });
+    document.querySelectorAll('.compra .botao,.fim .botao').forEach(function (b) { o.observe(b); });
+  }
+</script>
+</body>
+</html>
