@@ -3,144 +3,285 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Como fiz o vídeo da figurinha, clique por clique | Mini aula</title>
-<meta name="description" content="Mini aula gravada na tela, das 2 fotos até o Reel pronto. R$ 27,99.">
-<meta property="og:title" content="Como fiz o vídeo da figurinha, clique por clique">
-<meta property="og:description" content="Mini aula gravada na tela, das 2 fotos até o Reel pronto. R$ 27,99.">
+<title>De 2 selfies a 257 mil views | Mini aula</title>
+<meta name="description" content="Veja, clique por clique, como 2 selfies no elevador viraram um Reel com mais de 250 mil views. Mini aula + PDF por R$ 27,99.">
+<meta property="og:title" content="De 2 selfies no elevador a 257 mil views">
+<meta property="og:description" content="Veja, clique por clique, como eu fiz. Mini aula + PDF por R$ 27,99.">
 <meta property="og:image" content="https://ohuguera.com.br/figurinha/capa.jpg">
 <meta name="theme-color" content="#050B16">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <!--
-  Sistema da página (identidade aprovada em 05/11/2026, contexto/identidade.md):
-  Cores: noite #050B16, abismo #0A1F3D, azul #17406F, bebê #8FCBFA, cristal #D9F1FF, gelo #F2FAFF.
-  Tipo: Ubuntu Sans. Título 800 em caixa alta com degradê cristal; corpo 400-500; mínimo 17px no celular.
-  Ritmo: coluna única, 16px de margem no celular, seções separadas por filete fino, um único botão repetido.
-  LINK DE COMPRA: trocar o valor de data-checkout no <body> quando o produto existir.
+  Sistema: noite #050B16, abismo #0A1F3D, azul #17406F, bebê #8FCBFA, cristal #D9F1FF, gelo #F2FAFF.
+  Tipo: Ubuntu Sans. Títulos 800 em caixa alta com degradê cristal; corpo 400 a 500, mínimo 17px.
+  Ritmo: coluna única, imagem a cada seção, um único botão repetido.
+  Regra: só número e comentário real. Nada de cronômetro, vaga falsa ou promessa de viralizar.
+  LINK DE COMPRA: data-checkout no <body>.
 -->
 <style>
-  :root { --noite:#050B16; --abismo:#0A1F3D; --azul:#17406F; --bebe:#8FCBFA; --cristal:#D9F1FF; --gelo:#F2FAFF; --filete:rgba(190,232,255,.2); }
+  :root { --noite:#050B16; --abismo:#0A1F3D; --azul:#17406F; --bebe:#8FCBFA; --cristal:#D9F1FF; --gelo:#F2FAFF; --filete:rgba(190,232,255,.2); --vidro:rgba(14,40,74,.72) }
   * { box-sizing:border-box; margin:0 }
-  html { -webkit-text-size-adjust:100% }
-  body { font-family:'Ubuntu Sans',sans-serif; color:var(--gelo); font-size:18px; line-height:1.5; padding-bottom:96px;
-    background:radial-gradient(900px 620px at 50% -60px,#17406f 0%,#0a1f3d 48%,transparent 100%),var(--noite); background-repeat:no-repeat }
+  html { -webkit-text-size-adjust:100%; scroll-behavior:smooth }
+  body { font-family:'Ubuntu Sans',sans-serif; color:var(--gelo); font-size:18px; line-height:1.5; padding-bottom:92px; overflow-x:hidden;
+    background:radial-gradient(1000px 680px at 50% -80px,#1d4f85 0%,#0a1f3d 50%,transparent 100%),var(--noite); background-repeat:no-repeat }
+  img,video { display:block; max-width:100% }
   .wrap { width:100%; max-width:760px; margin:0 auto; padding:0 18px }
-  .olho { font-size:14px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--bebe) }
-  .brilho { font-weight:800; letter-spacing:-.03em; text-transform:uppercase; line-height:1.02;
-    background:linear-gradient(180deg,#fff 8%,#d9f1ff 45%,#8fcbfa 72%,#eaf8ff 100%); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 22px rgba(130,205,255,.35)) }
-  header { padding:34px 0 22px; text-align:center }
-  h1 { font-size:clamp(38px,9.6vw,68px); margin:12px 0 14px; text-wrap:balance }
-  .sub { font-size:clamp(18px,4.6vw,22px); color:var(--cristal); max-width:600px; margin:0 auto; text-wrap:pretty }
-  .tela { position:relative; border-radius:18px; overflow:hidden; border:1.5px solid rgba(190,232,255,.55); box-shadow:0 0 54px rgba(120,200,255,.28),0 22px 60px rgba(0,0,0,.6); background:#000; aspect-ratio:16/9 }
-  .tela video { display:block; width:100%; height:100%; object-fit:cover }
-  .som { position:absolute; right:10px; bottom:10px; min-height:44px; padding:0 16px; border-radius:999px; border:1px solid rgba(190,232,255,.7); background:rgba(5,11,22,.82); color:var(--gelo); font:700 15px 'Ubuntu Sans',sans-serif; cursor:pointer }
-  .botao { display:flex; align-items:center; justify-content:center; width:100%; min-height:62px; padding:14px 22px; border-radius:16px; text-align:center; text-decoration:none; font-size:20px; font-weight:800; letter-spacing:-.01em; color:#04121f;
-    background:linear-gradient(180deg,#f4fbff,#a9d9fb); box-shadow:0 0 34px rgba(143,203,250,.55); transition:transform .15s,box-shadow .15s }
-  .botao:hover { transform:translateY(-2px); box-shadow:0 0 46px rgba(143,203,250,.8) }
-  .botao:focus-visible,.som:focus-visible { outline:3px solid #fff; outline-offset:3px }
-  .compra { padding:22px 0 8px; text-align:center }
-  .nota { font-size:15px; color:#BCD7EC; margin-top:10px }
-  section { padding:38px 0; border-top:1px solid var(--filete); margin-top:30px }
-  section + section { margin-top:0 }
-  h2 { font-size:clamp(28px,6.6vw,40px); margin-bottom:20px }
-  .passos { list-style:none; padding:0; counter-reset:p }
-  .passos li { counter-increment:p; display:grid; grid-template-columns:44px 1fr; gap:6px 10px; padding:13px 0; border-bottom:1px solid var(--filete); text-wrap:pretty }
-  .passos li:last-child { border-bottom:0 }
-  .passos li::before { content:counter(p); font-size:26px; font-weight:800; line-height:1.15; color:var(--bebe) }
-  p + p { margin-top:12px }
-  .avisos { list-style:none; padding:0 }
-  .avisos li { padding:12px 0; border-bottom:1px solid var(--filete); color:var(--cristal); text-wrap:pretty }
-  .avisos li:last-child { border-bottom:0 }
-  .fim { text-align:center }
-  .preco { font-size:clamp(58px,15vw,88px); margin:6px 0 18px }
-  footer { padding:26px 0 18px; font-size:14px; color:#9FC4E0; text-align:center; border-top:1px solid var(--filete) }
-  .fixo { position:fixed; left:0; right:0; bottom:0; padding:10px 14px calc(10px + env(safe-area-inset-bottom)); background:linear-gradient(180deg,transparent,rgba(5,11,22,.96) 34%); z-index:5 }
-  .fixo .botao { max-width:724px; margin:0 auto; min-height:56px; font-size:18px }
-  @media (prefers-reduced-motion:reduce) { .botao { transition:none } .botao:hover { transform:none } }
+  .olho { font-size:14px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--bebe) }
+  .brilho { font-weight:800; letter-spacing:-.03em; text-transform:uppercase; line-height:1.01;
+    background:linear-gradient(180deg,#fff 8%,#d9f1ff 45%,#8fcbfa 72%,#eaf8ff 100%); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 22px rgba(130,205,255,.38)) }
+  h1 { font-size:clamp(39px,11.2vw,84px); margin:12px 0 14px }
+  h1 .linha { white-space:nowrap }
+  h2 { font-size:clamp(31px,8vw,48px); margin-bottom:18px; text-wrap:balance }
+  header { padding:30px 0 20px; text-align:center }
+  .sub { font-size:clamp(19px,5vw,24px); color:var(--cristal); max-width:620px; margin:0 auto; text-wrap:pretty }
+  .sub b { color:#fff }
+  section { padding:44px 0 6px }
+
+  /* Antes e depois */
+  .ad { display:grid; grid-template-columns:1fr 1fr; gap:10px; position:relative }
+  .lado { position:relative; border-radius:20px; overflow:hidden; aspect-ratio:3/4; background:#000; border:1.5px solid rgba(190,232,255,.4) }
+  .lado.dep { border-color:#BFE6FF; box-shadow:0 0 44px rgba(143,203,250,.55) }
+  .lado video,.lado img.un { width:100%; height:100%; object-fit:cover }
+  .selfies { position:absolute; inset:0; background:#0a1f3d }
+  .selfies img { position:absolute; width:66%; border-radius:12px; border:2px solid rgba(255,255,255,.75); box-shadow:0 10px 26px rgba(0,0,0,.55) }
+  .selfies img:nth-child(1) { left:5%; top:7%; transform:rotate(-5deg) }
+  .selfies img:nth-child(2) { right:5%; bottom:13%; transform:rotate(5deg) }
+  .tag { position:absolute; left:8px; right:8px; bottom:8px; text-align:center; font-size:clamp(14px,3.8vw,18px); font-weight:800; letter-spacing:.02em; text-transform:uppercase; padding:7px 6px; border-radius:11px; background:rgba(5,11,22,.88); border:1px solid rgba(190,232,255,.5) }
+  .lado.dep .tag { color:#04121f; background:linear-gradient(180deg,#f4fbff,#a9d9fb); border:0 }
+  .seta { position:absolute; left:50%; top:44%; transform:translate(-50%,-50%); width:52px; height:52px; border-radius:50%; display:grid; place-items:center; color:#04121f; font-size:28px; font-weight:800; background:linear-gradient(180deg,#fff,#a9d9fb); box-shadow:0 0 30px rgba(143,203,250,.95); z-index:2; animation:pulso 1.5s ease-in-out infinite }
+  @keyframes pulso { 50% { transform:translate(-50%,-50%) scale(1.14) } }
+
+  /* Botão */
+  .botao { position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; min-height:70px; padding:13px 20px; border-radius:18px; text-align:center; text-decoration:none; font-size:clamp(20px,5.4vw,24px); font-weight:800; letter-spacing:-.01em; line-height:1.15; color:#04121f;
+    background:linear-gradient(180deg,#f8fdff,#a9d9fb); box-shadow:0 0 38px rgba(143,203,250,.65); transition:transform .15s }
+  .botao small { font-size:14px; font-weight:600; letter-spacing:0; margin-top:3px; color:#17406F }
+  .botao::after { content:""; position:absolute; top:0; bottom:0; left:-40%; width:30%; background:linear-gradient(100deg,transparent,rgba(255,255,255,.95),transparent); transform:skewX(-18deg); animation:brilho 3s ease-in-out infinite }
+  @keyframes brilho { 0%,55% { left:-40% } 100% { left:125% } }
+  .botao:hover { transform:translateY(-2px) scale(1.01) }
+  .botao:focus-visible,.som:focus-visible,summary:focus-visible { outline:3px solid #fff; outline-offset:3px }
+  .compra { padding:18px 0 0; text-align:center }
+  .pag { font-size:15px; color:#BCD7EC; margin-top:10px; text-wrap:balance }
+
+  /* Números */
+  .nums { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:26px }
+  .num { background:var(--vidro); border:1px solid var(--filete); border-radius:18px; padding:16px 10px; text-align:center }
+  .num strong { display:block; font-size:clamp(32px,9vw,50px); font-weight:800; letter-spacing:-.03em; line-height:1.05; color:#fff; font-variant-numeric:tabular-nums }
+  .num span { font-size:15px; color:#BCD7EC }
+  .fonte { font-size:14px; color:#9FC4E0; text-align:center; margin-top:8px }
+
+  /* Comentários */
+  .coms { display:grid; gap:10px }
+  .com { display:flex; gap:13px; align-items:center; background:var(--vidro); border:1px solid rgba(190,232,255,.35); border-radius:18px; padding:13px 16px }
+  .com:nth-child(2) { margin-left:22px } .com:nth-child(3) { margin-left:8px }
+  .av { width:44px; height:44px; border-radius:50%; flex:none; background:linear-gradient(135deg,#bfe6ff,#3f83c4); filter:blur(3px) }
+  .nome { display:block; width:96px; height:11px; border-radius:6px; background:#7ea6c7; filter:blur(4px); margin-bottom:7px }
+  .com b { font-size:clamp(21px,5.6vw,26px); font-weight:700; letter-spacing:-.01em }
+
+  /* Ganhos */
+  .ganhos { list-style:none; padding:0; display:grid; gap:10px }
+  .ganhos li { background:var(--vidro); border:1px solid var(--filete); border-radius:18px; padding:15px 17px }
+  .ganhos b { display:block; font-size:21px; line-height:1.2; color:#fff; margin-bottom:3px }
+  .ganhos span { color:var(--cristal); font-size:17px }
+
+  /* Passos */
+  .passo { margin-bottom:22px }
+  .passo .tit { display:flex; align-items:center; gap:12px; margin-bottom:10px; font-size:clamp(22px,5.8vw,28px); font-weight:800; letter-spacing:-.02em; line-height:1.15 }
+  .passo .n { flex:none; width:42px; height:42px; display:grid; place-items:center; border-radius:50%; color:#04121f; font-size:21px; background:linear-gradient(180deg,#fff,#a9d9fb); box-shadow:0 0 20px rgba(143,203,250,.6) }
+  .print { border-radius:16px; overflow:hidden; border:1.5px solid rgba(190,232,255,.45) }
+  .print img { width:100% }
+  .print.estreito { max-width:430px; margin:0 auto }
+  .passo p { margin-top:9px; color:var(--cristal); text-wrap:pretty }
+
+  /* Virada */
+  .virada { margin-top:44px; padding:24px 20px; text-align:center; border-radius:22px; border:1.5px solid #BFE6FF; box-shadow:0 0 42px rgba(143,203,250,.35); background:linear-gradient(135deg,rgba(23,64,111,.8),rgba(10,31,61,.8)) }
+  .virada .brilho { font-size:clamp(28px,7.6vw,42px) }
+  .virada p { margin-top:10px; color:var(--cristal) }
+
+  /* Trailer */
+  .tela { position:relative; border-radius:18px; overflow:hidden; border:1.5px solid rgba(190,232,255,.55); box-shadow:0 0 54px rgba(120,200,255,.28); background:#000; aspect-ratio:16/9 }
+  .tela video { width:100%; height:100%; object-fit:cover }
+  .som { position:absolute; right:10px; top:10px; min-height:44px; padding:0 16px; border-radius:999px; border:1px solid rgba(190,232,255,.7); background:rgba(5,11,22,.84); color:var(--gelo); font:700 15px 'Ubuntu Sans',sans-serif; cursor:pointer }
+
+  /* Oferta */
+  .oferta { margin-top:44px; padding:26px 20px 22px; text-align:center; border-radius:24px; border:2px solid #BFE6FF; background:linear-gradient(180deg,rgba(29,79,133,.75),rgba(10,31,61,.85)); box-shadow:0 0 60px rgba(143,203,250,.4) }
+  .inclui { list-style:none; padding:0; margin:14px 0 8px; text-align:left }
+  .inclui li { padding:10px 0 10px 32px; position:relative; border-bottom:1px solid var(--filete); text-wrap:pretty }
+  .inclui li::before { content:"✓"; position:absolute; left:4px; top:9px; font-weight:800; color:var(--bebe); font-size:20px }
+  .preco { font-size:clamp(70px,20vw,112px); margin:8px 0 14px }
+
+  /* Dúvidas */
+  details { border-bottom:1px solid var(--filete) }
+  summary { cursor:pointer; list-style:none; padding:16px 34px 16px 0; font-size:19px; font-weight:700; position:relative; line-height:1.3 }
+  summary::-webkit-details-marker { display:none }
+  summary::after { content:"+"; position:absolute; right:4px; top:12px; font-size:27px; color:var(--bebe); font-weight:500 }
+  details[open] summary::after { content:"−" }
+  details p { padding:0 0 16px; color:var(--cristal); text-wrap:pretty }
+
+  footer { margin-top:38px; padding:24px 0 16px; font-size:14px; color:#9FC4E0; text-align:center; border-top:1px solid var(--filete); text-wrap:balance }
+  .fixo { position:fixed; left:0; right:0; bottom:0; padding:10px 14px calc(10px + env(safe-area-inset-bottom)); background:linear-gradient(180deg,transparent,rgba(5,11,22,.97) 34%); z-index:5; transition:transform .25s }
+  .fixo.fora { transform:translateY(120%) }
+  .fixo .botao { max-width:724px; margin:0 auto; min-height:58px; font-size:19px }
+
+  .js .rev { opacity:.15; transform:translateY(16px); transition:opacity .28s ease,transform .32s cubic-bezier(.2,.8,.2,1) }
+  .js .rev.on { opacity:1; transform:none }
+  .sound-hint { display:none }
+  @media (prefers-reduced-motion:reduce) { .seta,.botao::after { animation:none } .js .rev { opacity:1; transform:none; transition:none } html { scroll-behavior:auto } }
 </style>
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body data-checkout="https://pay.kiwify.com.br/j1XRsIs">
   <div class="wrap">
     <header>
-      <div class="olho">Mini aula</div>
-      <h1 class="brilho">Como fiz o vídeo da figurinha, clique por clique.</h1>
-      <p class="sub">Aula de 3 minutos, gravada na tela e narrada com voz de IA, das 2 fotos até o Reel pronto.</p>
+      <div class="olho">Mini aula + PDF</div>
+      <h1 class="brilho">De 2 selfies<br>no elevador a<br><span class="linha">257 mil views.</span></h1>
+      <p class="sub">Sem filmar nada. Eu te mostro <b>clique por clique</b> como fiz esse Reel com IA.</p>
     </header>
 
-    <div class="tela">
-      <video id="v" src="trailer.mp4" poster="capa.jpg" autoplay muted loop playsinline preload="metadata"></video>
-      <button class="som" id="s" type="button">Ligar o som</button>
+    <div class="ad">
+      <div class="lado">
+        <div class="selfies"><img src="selfie-1.jpg" alt="Primeira selfie no espelho do elevador"><img src="selfie-2.jpg" alt="Segunda selfie no espelho do elevador"></div>
+        <div class="tag">Antes: 2 selfies</div>
+      </div>
+      <div class="lado dep">
+        <video src="depois.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Trecho do Reel gerado a partir das selfies"></video>
+        <div class="tag">Depois: o Reel</div>
+      </div>
+      <div class="seta" aria-hidden="true">→</div>
     </div>
 
     <div class="compra">
-      <a class="botao comprar" href="#">Quero a mini aula por R$ 27,99</a>
-      <p class="nota">Acesso imediato · 7 dias para pedir o dinheiro de volta</p>
+      <a class="botao comprar" href="#">Quero aprender por R$ 27,99</a>
+      <p class="pag">Pix, cartão em até 12x ou boleto · 7 dias para pedir o dinheiro de volta</p>
     </div>
 
-    <section>
-      <h2 class="brilho">O que você vê na aula</h2>
-      <ol class="passos">
-        <li>Como entrar no Higgsfield do zero e como funcionam os planos e os créditos, para não gastar à toa.</li>
-        <li>A trend que usei no Genjutsu. O PDF mostra como usar outro vídeo como base, se ela não aparecer para você.</li>
-        <li>Quais fotos enviar. Usei 2 selfies no espelho.</li>
-        <li>Qual modo escolher, com os dois resultados lado a lado.</li>
-        <li>Os ajustes que usei e onde ver o custo antes de gerar.</li>
-        <li>O que fiz no editor: quadro vertical, copy e música.</li>
-      </ol>
-      <p style="margin-top:16px"><strong>Junto vem um PDF</strong> com um prompt genérico e o texto pronto para adaptar no ChatGPT ou no Claude.</p>
+    <div class="nums rev">
+      <div class="num"><strong data-conta="257810">257.810</strong><span>views</span></div>
+      <div class="num"><strong data-conta="2880">2.880</strong><span>curtidas</span></div>
+    </div>
+    <p class="fonte">Números do Reel no Instagram em 05/11/2026.</p>
+
+    <section class="rev">
+      <div class="olho" style="margin-bottom:8px">Comentários reais do Reel</div>
+      <h2 class="brilho">O pessoal perguntou:</h2>
+      <div class="coms">
+        <div class="com"><div class="av"></div><div><span class="nome"></span><b>Como faz ?</b></div></div>
+        <div class="com"><div class="av"></div><div><span class="nome"></span><b>Como cria isso</b></div></div>
+        <div class="com"><div class="av"></div><div><span class="nome"></span><b>Como faz esse vídeo ?</b></div></div>
+      </div>
     </section>
 
-    <section>
-      <h2 class="brilho">Para quem é</h2>
-      <p>Para quem quer fazer o próprio vídeo desse tipo e nunca abriu a ferramenta. Você não precisa saber editar.</p>
-      <p><strong>Você vai precisar de</strong> 2 fotos suas e uma conta no Higgsfield. A plataforma é paga à parte e não está incluída nos R$ 27,99. Cada vídeo gasta créditos conforme o que você quer produzir, e a aula mostra onde ver o valor antes de gerar.</p>
-    </section>
-
-    <section>
-      <h2 class="brilho">Quem ensina</h2>
-      <p>Sou Hugo Ouvidio, o @ohuguera. Trabalho com vídeo e IA, e esse Reel, com mais de 250 mil views em 05/11/2026, é o exemplo da aula.</p>
-    </section>
-
-    <section>
-      <h2 class="brilho">Antes de comprar</h2>
-      <ul class="avisos">
-        <li>A aula mostra como o vídeo foi feito. Ela não garante views nem vendas.</li>
-        <li>Meu vídeo saiu sem prompt. O prompt do PDF é um modelo genérico que escrevi depois, ainda não testado, para você adaptar.</li>
-        <li>A cena com a arma é ficção gerada por IA. A aula não ensina nada sobre arma de verdade. Não use para ameaçar ninguém.</li>
-        <li>Sem relação com clube, jogadores ou com a Higgsfield.</li>
+    <section class="rev">
+      <h2 class="brilho">Depois da aula, você sabe:</h2>
+      <ul class="ganhos">
+        <li><b>Colocar você numa trend usando 2 fotos</b><span>Sem câmera, sem cenário e sem carro.</span></li>
+        <li><b>Escolher o modo certo de primeira</b><span>É o clique que define se o vídeo fica bom ou se você gasta crédito à toa.</span></li>
+        <li><b>Ver quanto vai gastar antes de gerar</b><span>Os créditos e os planos explicados sem enrolação.</span></li>
+        <li><b>Transformar o assunto do dia em post</b><span>O vídeo é o mesmo. É a copy que faz a pessoa compartilhar.</span></li>
       </ul>
     </section>
 
-    <section class="fim">
-      <div class="olho">Mini aula + PDF</div>
-      <div class="brilho preco">R$ 27,99</div>
-      <a class="botao comprar" href="#">Quero a mini aula por R$ 27,99</a>
-      <p class="nota">Acesso imediato · 7 dias para pedir o dinheiro de volta</p>
+    <section class="rev">
+      <h2 class="brilho">É mais simples do que parece:</h2>
+      <div class="passo">
+        <div class="tit"><span class="n">1</span>Escolhe a trend</div>
+        <div class="print"><img src="passo-1.jpg" alt="Tela do Genjutsu no Higgsfield com a biblioteca de trends" loading="lazy"></div>
+      </div>
+      <div class="passo">
+        <div class="tit"><span class="n">2</span>Sobe as 2 fotos</div>
+        <div class="print estreito"><img src="passo-2.jpg" alt="Tela com o vídeo-base e as 2 selfies selecionadas" loading="lazy"></div>
+      </div>
+      <div class="passo">
+        <div class="tit"><span class="n">3</span>Confere o preço e gera</div>
+        <div class="print estreito"><img src="passo-3.jpg" alt="Botão de gerar mostrando 189 créditos" loading="lazy"></div>
+        <p>Depois, no editor: quadro vertical, copy e música. A aula mostra o que eu fiz.</p>
+      </div>
     </section>
 
-    <footer>Hugo Ouvidio · @ohuguera<br>Música do vídeo: "Interloper" e "Crypto", Kevin MacLeod (incompetech.com). Licença Creative Commons: By Attribution.</footer>
+    <div class="virada rev">
+      <div class="brilho">Eu errei o modo na primeira tentativa.</div>
+      <p>Gastei crédito e o carro ficou igual ao do vídeo original. Na aula eu mostro as duas versões lado a lado, para você começar pelo modo certo.</p>
+    </div>
+
+    <section class="rev">
+      <h2 class="brilho">Veja o começo da aula:</h2>
+      <div class="tela">
+        <video id="v" src="trailer.mp4" poster="capa.jpg" muted loop playsinline preload="none" aria-label="Abertura da mini aula"></video>
+        <button class="som" id="s" type="button">Tocar com som</button>
+      </div>
+    </section>
+
+    <div class="oferta rev" id="oferta">
+      <div class="olho">Tudo isso por</div>
+      <div class="brilho preco">R$ 27,99</div>
+      <ul class="inclui">
+        <li><b>Mini aula de 3 minutos,</b> gravada na tela, direto ao ponto</li>
+        <li><b>PDF com prompt genérico</b> e o texto pronto para adaptar no ChatGPT ou no Claude</li>
+        <li><b>Os ajustes que eu usei</b> e o checklist antes de gastar crédito</li>
+      </ul>
+      <a class="botao comprar" href="#" style="margin-top:14px">Quero aprender por R$ 27,99</a>
+      <p class="pag">Pix, cartão em até 12x ou boleto · 7 dias para pedir o dinheiro de volta</p>
+    </div>
+
+    <section class="rev">
+      <h2 class="brilho">Antes de comprar:</h2>
+      <details><summary>Preciso saber editar?</summary><p>Para gerar o vídeo, não. No final você usa um editor para colocar o quadro vertical, a copy e a música, e a aula mostra o que eu fiz.</p></details>
+      <details><summary>Vou gastar mais alguma coisa?</summary><p>Sim. A aula não inclui o Higgsfield, que é pago à parte. Em 05/11/2026, os planos começavam em US$ 15 por mês, com 200 créditos, e esse vídeo gastou 189 créditos na minha conta. A aula mostra onde ver o seu valor antes de gerar.</p></details>
+      <details><summary>E se a trend sair da lista?</summary><p>As trends mudam de lugar. O PDF mostra como usar outro vídeo como base, de 4 a 30 segundos, desde que você tenha direito de usar.</p></details>
+      <details><summary>Vem prompt pronto?</summary><p>Meu vídeo saiu sem prompt. O PDF traz um modelo genérico que escrevi depois, ainda não testado, para você adaptar.</p></details>
+      <details><summary>Quem narra a aula?</summary><p>A narração é feita com voz de IA. Quem mostra o processo sou eu, Hugo Ouvidio, o @ohuguera.</p></details>
+      <details><summary>A arma é real?</summary><p>Não. A cena é ficção gerada por IA, e a aula não ensina nada sobre arma de verdade. Não use a técnica para ameaçar ninguém.</p></details>
+      <details><summary>Vou viralizar?</summary><p>Não dá para prometer. A aula mostra como o vídeo foi feito, mas não garante views nem vendas. Se não gostar, você tem 7 dias para pedir o dinheiro de volta.</p></details>
+    </section>
+
+    <footer>Hugo Ouvidio · @ohuguera · Sem relação com clube, jogadores ou com a Higgsfield.<br>Música do vídeo: "Interloper" e "Crypto", Kevin MacLeod (incompetech.com). Licença Creative Commons: By Attribution.</footer>
   </div>
 
-  <div class="fixo" id="fixo"><a class="botao comprar" href="#">Quero por R$ 27,99</a></div>
+  <div class="fixo" id="fixo"><a class="botao comprar" href="#">Quero aprender por R$ 27,99</a></div>
 
 <script>
   var link = document.body.getAttribute('data-checkout');
   document.querySelectorAll('.comprar').forEach(function (a) { a.href = link; });
+
   var v = document.getElementById('v'), s = document.getElementById('s');
   s.addEventListener('click', function () {
-    v.muted = !v.muted;
-    if (!v.muted) { v.currentTime = 0; v.play(); }
-    s.textContent = v.muted ? 'Ligar o som' : 'Desligar o som';
+    if (v.paused || v.muted) { v.muted = false; v.currentTime = 0; v.play(); s.textContent = 'Desligar o som'; }
+    else { v.muted = true; s.textContent = 'Tocar com som'; }
   });
-  // A barra fixa some quando o botão principal está na tela, para não repetir.
+
+  var calmo = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function conta(el) {
+    var fim = +el.getAttribute('data-conta'), t0 = null, d = 1300;
+    function passo(t) {
+      if (t0 === null) t0 = t;
+      var k = Math.min(1, (t - t0) / d), e = 1 - Math.pow(1 - k, 4);
+      el.textContent = Math.round(fim * e).toLocaleString('pt-BR');
+      if (k < 1) requestAnimationFrame(passo);
+    }
+    requestAnimationFrame(passo);
+  }
+
   var fixo = document.getElementById('fixo');
   if ('IntersectionObserver' in window) {
-    var visiveis = new Set();
-    var o = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { e.isIntersecting ? visiveis.add(e.target) : visiveis.delete(e.target); });
-      fixo.style.display = visiveis.size ? 'none' : '';
+    var rev = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('on');
+        if (!calmo) e.target.querySelectorAll('[data-conta]').forEach(conta);
+        rev.unobserve(e.target);
+      });
+    }, { threshold: 0, rootMargin: '0px 0px 18% 0px' });
+    document.querySelectorAll('.rev').forEach(function (el) { rev.observe(el); });
+    // Garantia: nada fica apagado se o navegador atrasar a animação.
+    setTimeout(function () { document.querySelectorAll('.rev').forEach(function (el) { el.classList.add('on'); }); }, 2500);
+
+    var vis = new Set();
+    var ob = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.isIntersecting ? vis.add(e.target) : vis.delete(e.target); });
+      fixo.classList.toggle('fora', vis.size > 0);
     });
-    document.querySelectorAll('.compra .botao,.fim .botao').forEach(function (b) { o.observe(b); });
+    document.querySelectorAll('.compra .botao,.oferta .botao').forEach(function (b) { ob.observe(b); });
+  } else {
+    document.querySelectorAll('.rev').forEach(function (el) { el.classList.add('on'); });
   }
 </script>
 </body>
